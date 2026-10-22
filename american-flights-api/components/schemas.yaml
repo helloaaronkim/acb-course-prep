@@ -1,0 +1,47 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: American Flight Schemas
+paths: {}
+components:
+  schemas:
+    AmericanFlight:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+        airlineName:
+          type: string
+        price:
+          type: number
+        departureDate:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        emptySeats:
+          type: integer
+        plane:
+          type: object
+          properties:
+            planeType:
+              type: string
+            totalSeats:
+              type: integer
+      required:
+        - airlineName
+        - code
+        - price
+        - departureDate
+        - origin
+        - destination
+        - emptySeats
+
+    AmericanFlights:
+      type: array
+      items:
+        $ref: '#/components/schemas/AmericanFlight'

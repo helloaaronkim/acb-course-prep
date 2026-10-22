@@ -1,0 +1,56 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: American Flight Examples
+paths: {}
+components:
+  examples:
+    AmericanFlightRequest:
+      value:  
+          code: ER38sd
+          airlineName: American Airlines
+          price: 400
+          departureDate: 2025/07/31
+          origin: CLE
+          destination: SFO
+          emptySeats: 0
+          plane:
+            planeType: Boeing 737
+            totalSeats: 150
+    AmericanFlightsResponse:
+      value:  
+        - id: 2
+          code: ER38sd
+          airlineName: American Airlines
+          price: 400
+          departureDate: 2025/07/31
+          origin: CLE
+          destination: SFO
+          emptySeats: 0
+          plane:
+            planeType: Boeing 737
+            totalSeats: 150
+        - id: 3
+          code: ER45if
+          airlineName: American Airlines
+          price: 540.99
+          departureDate: 2025/01/30
+          origin: SFO
+          destination: ORD
+          emptySeats: 54
+          plane:
+            planeType: Boeing 777
+            totalSeats: 300
+    AmericanFlightResponse:
+      value:  
+        id: 1
+        code: ER38sd
+        airlineName: American Airlines
+        price: 400
+        departureDate: 2025/07/31
+        origin: CLE
+        destination: SFO
+        emptySeats: 0
+        plane:
+          planeType: Boeing 737
+          totalSeats: 150

@@ -18,10 +18,31 @@ paths:
             responses:
                 "200":
                     description:
+                    content:
+                        application/json:
+                            schema:
+                                $ref: 'components/schemas.yaml#/components/schemas/AmericanFlights'
+                            examples:
+                                AmericanFlightsResponse:
+                                    $ref: 'components/examples.yaml#/components/examples/AmericanFlightsResponse'
         post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: 'components/schemas.yaml#/components/schemas/AmericanFlight'
+                        examples:
+                            AmericanFlightsRequest:
+                                $ref: 'components/examples.yaml#/components/examples/AmericanFlightRequest'
             responses:
                 "201":
                     description:
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example:
+                                message: Flight added successfully (but not really)
     /flights/{id}:
         parameters:
             - name: id
@@ -29,4 +50,14 @@ paths:
               required: true
               schema:
                 type: integer
-        
+        get:
+            responses:
+                "200":
+                    description:
+                    content:
+                        application/json:
+                            schema:
+                                $ref: 'components/schemas.yaml#/components/schemas/AmericanFlight'
+                            examples:
+                                AmericanFlightResponse:
+                                    $ref: 'components/examples.yaml#/components/examples/AmericanFlightResponse'
