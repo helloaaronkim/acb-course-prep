@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+    version: 1.0.0
+    title: American Flights API
+paths:
+    /flights: 
+        get:
+            parameters:
+                - name: destination
+                  in: query
+                  required: false
+                  schema:
+                    type: string
+                    enum:
+                        - SFO
+                        - LAX
+                        - CLE
+            responses:
+                "200":
+                    description:
+        post:
+            responses:
+                "201":
+                    description:
+    /flights/{id}:
+        parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+        
