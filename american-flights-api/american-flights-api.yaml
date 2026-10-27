@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-    version: 1.0.0
+    version: 1.1.0
     title: American Flights API
 paths:
     /flights: 
@@ -61,3 +61,13 @@ paths:
                             examples:
                                 AmericanFlightResponse:
                                     $ref: 'components/examples.yaml#/components/examples/AmericanFlightResponse'
+        delete:
+            responses:
+                "200":
+                    description: 
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                            example: 
+                                message: Flight deleted (but not really)                    

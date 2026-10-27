@@ -4,8 +4,9 @@
   "classifier": "oas",
   "organizationId": "7fbd56cc-85de-403d-a597-34792daf3e63",
   "descriptorVersion": "1.0.0",
+  "tags": [],
+  "apiVersion": "v1",
   "groupId": "7fbd56cc-85de-403d-a597-34792daf3e63",
   "assetId": "american-flights-api",
-  "version": "1.0.0",
-  "tags": []
+  "version": "1.1.0"
 }
