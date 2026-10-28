@@ -8,7 +8,7 @@
         <db:my-sql-connection password="mule" database="training" port="3306" host="iltdb.mule-training.com" user="mule"></db:my-sql-connection>
     </db:config>
     <flow name="getFlights">
-        <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="ajxavq" doc:name="Listener" path="/flights"></http:listener>
+        
         <db:select doc:id="heqrwc" doc:name="Select" config-ref="Config">
             <db:sql><![CDATA[SELECT *
 FROM american]]></db:sql>
@@ -36,7 +36,7 @@ payload map (Payload0, indexOfPayload0) -> {
     </ee:transform>
     </flow>
 <flow name="getFlightsById">
-        <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="mgwxec" doc:name="Listener" path="/flights/{id}"></http:listener>
+        
         <db:select doc:id="nljwvv" doc:name="Select" config-ref="Config">
             <db:sql><![CDATA[SELECT *
 FROM american
