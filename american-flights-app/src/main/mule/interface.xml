@@ -138,71 +138,12 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="get:\flights:american-flights-api-config">
-        <ee:transform doc:name="Transform Message">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-[
-  {
-    id: 2,
-    code: "ER38sd",
-    airlineName: "American Airlines",
-    price: 400,
-    departureDate: "2025/07/31",
-    origin: "CLE",
-    destination: "SFO",
-    emptySeats: 0,
-    plane: {
-      planeType: "Boeing 737",
-      totalSeats: 150
-    }
-  }, 
-  {
-    id: 3,
-    code: "ER45if",
-    airlineName: "American Airlines",
-    price: 540.99,
-    departureDate: "2025/01/30",
-    origin: "SFO",
-    destination: "ORD",
-    emptySeats: 54,
-    plane: {
-      planeType: "Boeing 777",
-      totalSeats: 300
-    }
-  }
-] as Array {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+    <flow-ref doc:name="Flow-ref" name="getFlights"/>
+        
     </flow>
     <flow name="get:\flights\(id):american-flights-api-config">
-        <ee:transform doc:name="Transform Message">
-            <ee:variables>
-                <ee:set-variable variableName="id">attributes.uriParams.'id'</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <ee:transform doc:name="Transform Message">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  id: 1,
-  code: "ER38sd",
-  airlineName: "American Airlines",
-  price: 400,
-  departureDate: "2025/07/31",
-  origin: "CLE",
-  destination: "SFO",
-  emptySeats: 0,
-  plane: {
-    planeType: "Boeing 737",
-    totalSeats: 150
-  }
-} as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+    <flow-ref doc:name="Flow-ref" name="getFlightsById"/>
+        
     </flow>
     <flow name="post:\flights:application\json:american-flights-api-config">
         <ee:transform doc:name="Transform Message">
