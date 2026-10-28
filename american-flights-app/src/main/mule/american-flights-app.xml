@@ -35,4 +35,35 @@ payload map (Payload0, indexOfPayload0) -> {
       </ee:message>
     </ee:transform>
     </flow>
+<flow name="getFlightsById">
+        <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="mgwxec" doc:name="Listener" path="/flights/{id}"></http:listener>
+        <db:select doc:id="nljwvv" doc:name="Select" config-ref="Config">
+            <db:sql><![CDATA[SELECT *
+FROM american
+WHERE ID = :ID]]></db:sql>
+            <db:input-parameters><![CDATA[#[{'ID' : attributes.uriParams.id}]]]></db:input-parameters>    
+        </db:select>
+    <ee:transform doc:name="AmericanFlight" doc:id="auaofg" >
+      <ee:message >
+        <ee:set-payload doc:name="Set payload" doc:id="bapppd" ><![CDATA[%dw 2.0
+output application/json
+var element = payload[0]
+---
+{
+        id: element.ID default 0,
+        code: (element.code1 default "") ++ (element.code2 default ""),
+        airlineName: element.airlineName default "",
+        price: element.price default 0,
+        departureDate: element.takeOffDate default "",
+        origin: element.fromAirport default "",
+        destination: element.toAirport default "",
+        emptySeats: element.seatsAvailable default 0,
+        plane: {
+                planeType: element.planeType default "",
+                totalSeats: element.totalSeats default 0
+        }
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+    </flow>
 </mule>

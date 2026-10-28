@@ -39,4 +39,13 @@ type american_flights = Array<{|  id: Number {"typeId": "int"},   code: String, 
       </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
+  <types:enrichment select="#auaofg">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="american-records"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
 </types:mule>

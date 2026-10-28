@@ -1,0 +1,22 @@
+{
+  "env": {
+    "entry": "nunc"
+  },
+  "fileSeparator": "lectus",
+  "host": "Fusce",
+  "ip": "tempor",
+  "locale": "tincidunt",
+  "javaVendor": "erat",
+  "javaVersion": "arcu",
+  "osArch": "elit",
+  "osName": "Alexa",
+  "osVersion": "Nam",
+  "systemProperties": {
+    "entry": "a"
+  },
+  "timeZone": "In",
+  "tmpDir": "dolor",
+  "userDir": "pulvinar",
+  "userHome": "sodales",
+  "userName": "Alta"
+}

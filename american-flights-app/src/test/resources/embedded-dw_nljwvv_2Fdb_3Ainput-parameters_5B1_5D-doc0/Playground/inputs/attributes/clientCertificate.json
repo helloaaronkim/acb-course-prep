@@ -1,0 +1,77 @@
+{
+  "basicConstraints": 25,
+  "criticalExtensionOIDs": [
+    "eros",
+    "ipsum",
+    "nunc"
+  ],
+  "extendedKeyUsage": [
+    "convallis",
+    "ac",
+    "ac"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "nunc"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Danny",
+      "type": 47
+    }
+  ],
+  "issuerDN": {
+    "commonName": "venenatis",
+    "name": "Agueda"
+  },
+  "issuerUniqueID": [
+    true,
+    true,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Amy"
+  },
+  "keyUsage": [
+    false,
+    true,
+    true
+  ],
+  "name": "Cole",
+  "nonCriticalExtensionOIDs": [
+    "ut",
+    "tempor",
+    "consectetur"
+  ],
+  "notAfter": "2024-09-12",
+  "notBefore": "2025-06-07",
+  "publicKey": {
+    "algorithm": "nibh",
+    "modulus": 4,
+    "params": 32,
+    "publicKey": "a"
+  },
+  "serialNumber": 18,
+  "serialNumberObject": {
+    "serialNumber": 47
+  },
+  "sigAlgName": "dolor",
+  "sigAlgOID": "consectetur",
+  "subjectAlternativeNames": [
+    {
+      "name": "Calvin",
+      "type": 83
+    }
+  ],
+  "subjectDN": {
+    "commonName": "arcu",
+    "name": "Dante"
+  },
+  "subjectX500Principal": {
+    "name": "Althea"
+  },
+  "type": "a",
+  "version": 50
+}

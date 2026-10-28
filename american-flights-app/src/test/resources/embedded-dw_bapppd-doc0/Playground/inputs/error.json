@@ -1,0 +1,29 @@
+{
+  "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In ac tincidunt libero. Pellentesque pulvinar justo vitae molestie tempor nunc risus faucibus ipsum semper tempor erat erat sed mi.",
+  "detailedDescription": "tincidunt",
+  "failingComponent": "Aliquam",
+  "errorType": {
+    "identifier": "consectetur",
+    "namespace": "Adaline"
+  },
+  "cause": {
+    "message": "aliquam",
+    "class": "nisi"
+  },
+  "errorMessage": {},
+  "childErrors": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur",
+      "detailedDescription": "ac",
+      "failingComponent": "molestie",
+      "errorType": {
+        "identifier": "amet",
+        "namespace": "Abbey"
+      },
+      "cause": {
+        "message": "sodales",
+        "class": "aliquam"
+      }
+    }
+  ]
+}
