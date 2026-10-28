@@ -1,9 +1,25 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-    <http:listener-config name="Listener-config" basePath="/">
-        <http:listener-connection port="8081" host="0.0.0.0"></http:listener-connection>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+	http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+    <http:listener-config basePath="/" name="Listener-config">
+        <http:listener-connection host="0.0.0.0" port="8081"></http:listener-connection>
     </http:listener-config>
+    <db:config name="Config">
+        <db:my-sql-connection password="mule" database="training" port="3306" host="iltdb.mule-training.com" user="mule"></db:my-sql-connection>
+    </db:config>
     <flow name="getFlights">
-        <http:listener config-ref="Listener-config" doc:id="nginwo" doc:name="GET /flights" path="/flights" allowedMethods="GET"></http:listener>
-        <set-payload doc:name="Set payload" doc:id="wtoiut" value="Flight info"/>
+        <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="ajxavq" doc:name="Listener" path="/flights"></http:listener>
+        <db:select doc:id="heqrwc" doc:name="Select" config-ref="Config">
+            <db:sql><![CDATA[SELECT *
+FROM american]]></db:sql>
+        </db:select>
+        <ee:transform doc:name="Transform Message" doc:id="dmhghq" >
+            <ee:message >
+                <ee:set-payload doc:name="Set payload" doc:id="xouxgx" ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
     </flow>
 </mule>
