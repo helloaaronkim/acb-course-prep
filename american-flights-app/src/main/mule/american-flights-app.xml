@@ -13,13 +13,26 @@
             <db:sql><![CDATA[SELECT *
 FROM american]]></db:sql>
         </db:select>
-        <ee:transform doc:name="Transform Message" doc:id="dmhghq" >
-            <ee:message >
-                <ee:set-payload doc:name="Set payload" doc:id="xouxgx" ><![CDATA[%dw 2.0
+    <ee:transform doc:name="Transform Message" doc:id="thrhzb" >
+      <ee:message >
+        <ee:set-payload doc:name="Set payload" doc:id="jvfead" ><![CDATA[%dw 2.0
 output application/json
 ---
-payload]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+payload map (Payload0, indexOfPayload0) -> {
+  id: (Payload0.ID default 0),
+  code: (Payload0.code1 default "") ++ (Payload0.code2 default ""),
+  airlineName: (Payload0.airlineName default ""),
+  destination: (Payload0.toAirport default ""),
+  origin: (Payload0.fromAirport default ""),
+  departureDate: (Payload0.takeOffDate default ""),
+  price: (Payload0.price default 0),
+  plane: {
+    planeType: (Payload0.planeType default ""),
+    totalSeats: (Payload0.totalSeats default 0)
+  },
+  emptySeats: (Payload0.seatsAvailable default 0)
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
     </flow>
 </mule>

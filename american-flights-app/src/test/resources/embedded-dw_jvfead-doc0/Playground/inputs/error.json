@@ -1,0 +1,29 @@
+{
+  "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In",
+  "detailedDescription": "Fusce",
+  "failingComponent": "molestie",
+  "errorType": {
+    "identifier": "dictum",
+    "namespace": "Alphonso"
+  },
+  "cause": {
+    "message": "ipsum",
+    "class": "aliquam"
+  },
+  "errorMessage": {},
+  "childErrors": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing",
+      "detailedDescription": "sodales",
+      "failingComponent": "convallis",
+      "errorType": {
+        "identifier": "sit",
+        "namespace": "Alena"
+      },
+      "cause": {
+        "message": "consectetur",
+        "class": "justo"
+      }
+    }
+  ]
+}

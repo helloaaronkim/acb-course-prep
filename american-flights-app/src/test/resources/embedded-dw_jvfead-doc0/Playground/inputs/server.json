@@ -1,0 +1,22 @@
+{
+  "env": {
+    "entry": "In"
+  },
+  "fileSeparator": "pretium",
+  "host": "lectus",
+  "ip": "libero",
+  "locale": "aliquam",
+  "javaVendor": "Fusce",
+  "javaVersion": "eget",
+  "osArch": "dolor",
+  "osName": "Danial",
+  "osVersion": "dolor",
+  "systemProperties": {
+    "entry": "Lorem"
+  },
+  "timeZone": "eget",
+  "tmpDir": "faucibus",
+  "userDir": "dolor",
+  "userHome": "consectetur",
+  "userName": "Albina"
+}

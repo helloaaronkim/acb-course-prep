@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="american-records" format="json">
+      <types:shape format="weave" example="examples/american-flights-table.json"><![CDATA[%dw 2.0
+
+type american_records = Array<{|  ID: Number {"typeId": "int"},   code1: String,   code2: String,   airlineName: String,   toAirport: String,   fromAirport: String,   takeOffDate: String,   price: Number {"typeId": "int"},   planeType: String,   seatsAvailable: Number {"typeId": "int"},   totalSeats: Number {"typeId": "int"}|}> {"example": "[{\\\"ID\\\":1,\\\"code1\\\":\\\"rree\\\",\\\"code2\\\":\\\"0001\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"LAX\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-20\\\",\\\"price\\\":541,\\\"planeType\\\":\\\"Boeing 787\\\",\\\"seatsAvailable\\\":0,\\\"totalSeats\\\":200},{\\\"ID\\\":2,\\\"code1\\\":\\\"eefd\\\",\\\"code2\\\":\\\"0123\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"CLE\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-25\\\",\\\"price\\\":300,\\\"planeType\\\":\\\"Boeing 747\\\",\\\"seatsAvailable\\\":7,\\\"totalSeats\\\":345},{\\\"ID\\\":3,\\\"code1\\\":\\\"ffee\\\",\\\"code2\\\":\\\"0192\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"LAX\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-20\\\",\\\"price\\\":300,\\\"planeType\\\":\\\"Boeing 777\\\",\\\"seatsAvailable\\\":0,\\\"totalSeats\\\":300},{\\\"ID\\\":4,\\\"code1\\\":\\\"rree\\\",\\\"code2\\\":\\\"1000\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"CLE\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-20\\\",\\\"price\\\":200,\\\"planeType\\\":\\\"Boeing 737\\\",\\\"seatsAvailable\\\":5,\\\"totalSeats\\\":150},{\\\"ID\\\":5,\\\"code1\\\":\\\"rree\\\",\\\"code2\\\":\\\"1093\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"SFO\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-02-11\\\",\\\"price\\\":142,\\\"planeType\\\":\\\"Boeing 737\\\",\\\"seatsAvailable\\\":1,\\\"totalSeats\\\":150},{\\\"ID\\\":6,\\\"code1\\\":\\\"ffee\\\",\\\"code2\\\":\\\"1112\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"CLE\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-20\\\",\\\"price\\\":954,\\\"planeType\\\":\\\"Boeing 787\\\",\\\"seatsAvailable\\\":100,\\\"totalSeats\\\":200},{\\\"ID\\\":7,\\\"code1\\\":\\\"eefd\\\",\\\"code2\\\":\\\"1994\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"SFO\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-01\\\",\\\"price\\\":676,\\\"planeType\\\":\\\"Boeing 777\\\",\\\"seatsAvailable\\\":0,\\\"totalSeats\\\":300},{\\\"ID\\\":8,\\\"code1\\\":\\\"ffee\\\",\\\"code2\\\":\\\"2000\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"SFO\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-02-20\\\",\\\"price\\\":300,\\\"planeType\\\":\\\"Boeing 737\\\",\\\"seatsAvailable\\\":30,\\\"totalSeats\\\":150},{\\\"ID\\\":9,\\\"code1\\\":\\\"eefd\\\",\\\"code2\\\":\\\"3000\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"SFO\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-02-01\\\",\\\"price\\\":900,\\\"planeType\\\":\\\"Boeing 737\\\",\\\"seatsAvailable\\\":0,\\\"totalSeats\\\":150},{\\\"ID\\\":10,\\\"code1\\\":\\\"eefd\\\",\\\"code2\\\":\\\"4511\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"LAX\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-15\\\",\\\"price\\\":900,\\\"planeType\\\":\\\"Boeing 777\\\",\\\"seatsAvailable\\\":100,\\\"totalSeats\\\":300},{\\\"ID\\\":11,\\\"code1\\\":\\\"rree\\\",\\\"code2\\\":\\\"4567\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"toAirport\\\":\\\"SFO\\\",\\\"fromAirport\\\":\\\"MUA\\\",\\\"takeOffDate\\\":\\\"2016-01-20\\\",\\\"price\\\":456,\\\"planeType\\\":\\\"Boeing 737\\\",\\\"seatsAvailable\\\":100,\\\"totalSeats\\\":1150}]"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="american-flights" format="json">
+      <types:shape format="weave" example="examples/american-flights-example.json"><![CDATA[%dw 2.0
+
+type american_flights = Array<{|  id: Number {"typeId": "int"},   code: String,   airlineName: String,   price: Number {"typeId": "double"},   departureDate: String,   origin: String,   destination: String,   emptySeats: Number {"typeId": "int"},   plane: {|    planeType: String,     totalSeats: Number {"typeId": "int"}  |}|}> {"example": "[{\\\"id\\\":1,\\\"code\\\":\\\"ER38sd\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"price\\\":400.00,\\\"departureDate\\\":\\\"2025\\/07\\/31\\\",\\\"origin\\\":\\\"MUA\\\",\\\"destination\\\":\\\"SFO\\\",\\\"emptySeats\\\":0,\\\"plane\\\":{\\\"planeType\\\":\\\"Boeing 737\\\",\\\"totalSeats\\\":150}},{\\\"id\\\":2,\\\"code\\\":\\\"ER45if\\\",\\\"airlineName\\\":\\\"American Airlines\\\",\\\"price\\\":345.99,\\\"departureDate\\\":\\\"2025\\/01\\/30\\\",\\\"origin\\\":\\\"MUA\\\",\\\"destination\\\":\\\"LAX\\\",\\\"emptySeats\\\":52,\\\"plane\\\":{\\\"planeType\\\":\\\"Boeing 777\\\",\\\"totalSeats\\\":300}}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#dmhghq">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="american-records"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#thrhzb">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="american-records"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="american-flights"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
