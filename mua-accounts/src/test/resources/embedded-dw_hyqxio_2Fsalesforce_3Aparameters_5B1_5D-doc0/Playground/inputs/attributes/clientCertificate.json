@@ -1,75 +1,75 @@
 {
-  "basicConstraints": 41,
+  "basicConstraints": 9,
   "criticalExtensionOIDs": [
-    "erat",
-    "pretium"
+    "eros",
+    "erat"
   ],
   "extendedKeyUsage": [
     "molestie",
-    "at",
-    "mi"
+    "nisi"
   ],
   "extensions": [
     {
-      "criticality": false,
-      "oid": "dolor"
+      "criticality": true,
+      "oid": "nunc"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Collin",
-      "type": 74
+      "name": "Alfreda",
+      "type": 0
     }
   ],
   "issuerDN": {
-    "commonName": "amet",
-    "name": "Albina"
+    "commonName": "elit",
+    "name": "Ahmed"
   },
   "issuerUniqueID": [
-    false,
+    true,
     true,
     false
   ],
   "issuerX500Principal": {
-    "name": "Connie"
+    "name": "Alanna"
   },
   "keyUsage": [
     false,
-    false
+    false,
+    true
   ],
-  "name": "Amee",
+  "name": "Claudio",
   "nonCriticalExtensionOIDs": [
-    "libero",
-    "consectetur",
-    "lorem"
+    "molestie",
+    "amet",
+    "Lorem"
   ],
-  "notAfter": "2025-06-02",
-  "notBefore": "2026-09-21",
+  "notAfter": "2025-10-14",
+  "notBefore": "2025-09-21",
   "publicKey": {
-    "algorithm": "eget",
-    "modulus": 43,
-    "params": 19,
-    "publicKey": "tempor"
+    "algorithm": "Nunc",
+    "modulus": 59,
+    "params": 71,
+    "publicKey": "nunc"
   },
-  "serialNumber": 93,
+  "serialNumber": 4,
   "serialNumberObject": {
-    "serialNumber": 10
+    "serialNumber": 58
   },
-  "sigAlgName": "nisi",
-  "sigAlgOID": "eros",
+  "sigAlgName": "venenatis",
+  "sigAlgOID": "sit",
   "subjectAlternativeNames": [
     {
-      "name": "Cornelius",
-      "type": 3
+      "name": "Alejandro",
+      "type": 94
     }
   ],
   "subjectDN": {
-    "commonName": "Nam",
-    "name": "Charley"
+    "commonName": "felis",
+    "name": "Alix"
   },
   "subjectX500Principal": {
-    "name": "Aileen"
+    "name": "Chong"
   },
-  "type": "sodales",
-  "version": 7
+  "type": "libero",
+  "version": 57
 }

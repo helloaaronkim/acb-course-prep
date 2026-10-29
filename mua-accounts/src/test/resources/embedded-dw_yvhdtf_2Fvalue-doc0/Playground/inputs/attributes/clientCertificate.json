@@ -1,0 +1,75 @@
+{
+  "basicConstraints": 41,
+  "criticalExtensionOIDs": [
+    "pulvinar",
+    "ut",
+    "Fusce"
+  ],
+  "extendedKeyUsage": [
+    "molestie",
+    "In"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "dolor"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Collin",
+      "type": 79
+    }
+  ],
+  "issuerDN": {
+    "commonName": "pulvinar",
+    "name": "Alberto"
+  },
+  "issuerUniqueID": [
+    false,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Abraham"
+  },
+  "keyUsage": [
+    true,
+    true,
+    false
+  ],
+  "name": "Alecia",
+  "nonCriticalExtensionOIDs": [
+    "erat",
+    "erat",
+    "Nam"
+  ],
+  "notAfter": "2024-03-05",
+  "notBefore": "2023-02-05",
+  "publicKey": {
+    "algorithm": "viverra",
+    "modulus": 78,
+    "params": 50,
+    "publicKey": "mi"
+  },
+  "serialNumber": 94,
+  "serialNumberObject": {
+    "serialNumber": 13
+  },
+  "sigAlgName": "sodales",
+  "sigAlgOID": "dolor",
+  "subjectAlternativeNames": [
+    {
+      "name": "Amparo",
+      "type": 50
+    }
+  ],
+  "subjectDN": {
+    "commonName": "sodales",
+    "name": "Alpha"
+  },
+  "subjectX500Principal": {
+    "name": "Daniel"
+  },
+  "type": "pretium",
+  "version": 19
+}

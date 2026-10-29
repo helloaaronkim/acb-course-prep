@@ -19,14 +19,15 @@
 }]]]></http:headers>
       </http:response>
       </http:listener>
-    <set-payload doc:id="yvhdtf" doc:name="Set payload" value="All accounts"></set-payload>
+    <set-variable doc:name="Set variable" doc:id="miiyav" variableName="state" value="#[attributes.queryParams.state default 'CA']"/>
+    <set-payload doc:id="yvhdtf" doc:name="Set payload" value="#[upper(attributes.queryParams.state as String ++ ' accounts')]"></set-payload>
     <salesforce:query config-ref="Sfdc-config" doc:id="hyqxio" doc:name="Query">
       <salesforce:salesforce-query><![CDATA[SELECT Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry FROM Account WHERE BillingState LIKE '%:state']]></salesforce:salesforce-query>
-      <salesforce:parameters><![CDATA[#[output application/java
+    <salesforce:parameters><![CDATA[#[output application/java
 ---
 {
-	"state" : "CA"
-}]]]></salesforce:parameters>  
+	"state" : vars.state
+}]]]></salesforce:parameters>    
     </salesforce:query>
     <ee:transform doc:name="Transform Message" doc:id="sobimn" >
       <ee:message >

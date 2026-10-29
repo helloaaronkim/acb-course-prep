@@ -1,0 +1,74 @@
+{
+  "basicConstraints": 72,
+  "criticalExtensionOIDs": [
+    "erat",
+    "ipsum"
+  ],
+  "extendedKeyUsage": [
+    "sit",
+    "nunc",
+    "sit"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "erat"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Daniel",
+      "type": 46
+    }
+  ],
+  "issuerDN": {
+    "commonName": "eget",
+    "name": "Alec"
+  },
+  "issuerUniqueID": [
+    true,
+    false,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Caleb"
+  },
+  "keyUsage": [
+    true,
+    false
+  ],
+  "name": "Chas",
+  "nonCriticalExtensionOIDs": [
+    "erat",
+    "ut"
+  ],
+  "notAfter": "2022-06-10",
+  "notBefore": "2025-06-17",
+  "publicKey": {
+    "algorithm": "aliquam",
+    "modulus": 91,
+    "params": 66,
+    "publicKey": "libero"
+  },
+  "serialNumber": 52,
+  "serialNumberObject": {
+    "serialNumber": 37
+  },
+  "sigAlgName": "nunc",
+  "sigAlgOID": "felis",
+  "subjectAlternativeNames": [
+    {
+      "name": "Cory",
+      "type": 2
+    }
+  ],
+  "subjectDN": {
+    "commonName": "elit",
+    "name": "Dana"
+  },
+  "subjectX500Principal": {
+    "name": "Cordell"
+  },
+  "type": "at",
+  "version": 45
+}
