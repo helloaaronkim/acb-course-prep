@@ -1,0 +1,18 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: American Flight Traits
+paths: {}
+components: 
+  responses: 
+   trait_client-id-required_401: 
+     description: Unauthorized the client_id or client_secret are not valid or the client does not have access.
+
+   trait_client-id-required_429: 
+     description: The client used all of its request quota for the current period.
+   
+   trait_client-id-required_500: 
+     description: An error occurred see the specific message (Only if it is a WSDL endpoint).
+   
+   trait_client-id-required_503: 
+     description: Contracts Information Unreachable.

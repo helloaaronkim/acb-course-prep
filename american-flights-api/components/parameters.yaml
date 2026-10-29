@@ -1,0 +1,20 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: American Flight Traits
+paths: {}
+components: 
+  parameters: 
+    client_id: 
+      schema: 
+        type: string
+      in: header
+      name: client_id
+      required: true
+
+    client_secret: 
+      schema: 
+        type: string
+      in: header
+      name: client_secret
+      required: true

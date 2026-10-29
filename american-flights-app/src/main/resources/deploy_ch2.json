@@ -1,0 +1,7 @@
+{
+  "applicationName": "american-flights-app",
+  "runtime": "4.13.1:2e-java17",
+  "replicas": 1,
+  "replicaSize": "0.1",
+  "deploymentModel": "rolling"
+}

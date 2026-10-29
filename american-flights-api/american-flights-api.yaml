@@ -1,11 +1,13 @@
 openapi: 3.0.0
 info:
-    version: 1.1.0
+    version: 1.3.0
     title: American Flights API
 paths:
     /flights: 
         get:
             parameters:
+                - $ref: components/parameters.yaml#/components/parameters/client_id
+                - $ref: components/parameters.yaml#/components/parameters/client_secret
                 - name: destination
                   in: query
                   required: false
@@ -25,6 +27,14 @@ paths:
                             examples:
                                 AmericanFlightsResponse:
                                     $ref: 'components/examples.yaml#/components/examples/AmericanFlightsResponse'
+                "401":
+                    $ref: 'components/responses.yaml#/components/responses/trait_client-id-required_401'
+                "429":
+                    $ref: 'components/responses.yaml#/components/responses/trait_client-id-required_429'
+                "500":
+                    $ref: 'components/responses.yaml#/components/responses/trait_client-id-required_500'
+                "503":
+                    $ref: 'components/responses.yaml#/components/responses/trait_client-id-required_503'
         post:
             requestBody:
                 content:
