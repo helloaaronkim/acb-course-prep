@@ -1,0 +1,75 @@
+{
+  "basicConstraints": 41,
+  "criticalExtensionOIDs": [
+    "erat",
+    "pretium"
+  ],
+  "extendedKeyUsage": [
+    "molestie",
+    "at",
+    "mi"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "dolor"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Collin",
+      "type": 74
+    }
+  ],
+  "issuerDN": {
+    "commonName": "amet",
+    "name": "Albina"
+  },
+  "issuerUniqueID": [
+    false,
+    true,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Connie"
+  },
+  "keyUsage": [
+    false,
+    false
+  ],
+  "name": "Amee",
+  "nonCriticalExtensionOIDs": [
+    "libero",
+    "consectetur",
+    "lorem"
+  ],
+  "notAfter": "2025-06-02",
+  "notBefore": "2026-09-21",
+  "publicKey": {
+    "algorithm": "eget",
+    "modulus": 43,
+    "params": 19,
+    "publicKey": "tempor"
+  },
+  "serialNumber": 93,
+  "serialNumberObject": {
+    "serialNumber": 10
+  },
+  "sigAlgName": "nisi",
+  "sigAlgOID": "eros",
+  "subjectAlternativeNames": [
+    {
+      "name": "Cornelius",
+      "type": 3
+    }
+  ],
+  "subjectDN": {
+    "commonName": "Nam",
+    "name": "Charley"
+  },
+  "subjectX500Principal": {
+    "name": "Aileen"
+  },
+  "type": "sodales",
+  "version": 7
+}

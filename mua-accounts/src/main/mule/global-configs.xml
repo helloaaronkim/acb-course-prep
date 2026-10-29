@@ -10,10 +10,23 @@
     </salesforce:oauth-client-credentials-connection>
   </salesforce:sfdc-config>
   <flow name="getAccounts">
-    <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="tcfppr" doc:name="GET /accounts" path="/accounts"></http:listener>
+    <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="tcfppr" doc:name="GET /accounts" path="/accounts">
+      <http:response reasonPhrase="Success">
+        <http:headers><![CDATA[#[output application/java
+---
+{
+	"state" : "CA"
+}]]]></http:headers>
+      </http:response>
+      </http:listener>
     <set-payload doc:id="yvhdtf" doc:name="Set payload" value="All accounts"></set-payload>
     <salesforce:query config-ref="Sfdc-config" doc:id="hyqxio" doc:name="Query">
-      <salesforce:salesforce-query><![CDATA[SELECT Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry FROM Account]]></salesforce:salesforce-query>
+      <salesforce:salesforce-query><![CDATA[SELECT Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry FROM Account WHERE BillingState LIKE '%:state']]></salesforce:salesforce-query>
+      <salesforce:parameters><![CDATA[#[output application/java
+---
+{
+	"state" : "CA"
+}]]]></salesforce:parameters>  
     </salesforce:query>
     <ee:transform doc:name="Transform Message" doc:id="sobimn" >
       <ee:message >
