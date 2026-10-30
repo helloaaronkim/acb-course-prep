@@ -1,0 +1,75 @@
+{
+  "basicConstraints": 17,
+  "criticalExtensionOIDs": [
+    "dui",
+    "venenatis",
+    "dolor"
+  ],
+  "extendedKeyUsage": [
+    "arcu",
+    "aliquam",
+    "In"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "ut"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Amal",
+      "type": 21
+    }
+  ],
+  "issuerDN": {
+    "commonName": "libero",
+    "name": "Casey"
+  },
+  "issuerUniqueID": [
+    true,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Alexandria"
+  },
+  "keyUsage": [
+    true,
+    true,
+    false
+  ],
+  "name": "Bryan",
+  "nonCriticalExtensionOIDs": [
+    "consectetur",
+    "nunc"
+  ],
+  "notAfter": "2022-05-18",
+  "notBefore": "2022-06-24",
+  "publicKey": {
+    "algorithm": "nisi",
+    "modulus": 0,
+    "params": 40,
+    "publicKey": "nunc"
+  },
+  "serialNumber": 38,
+  "serialNumberObject": {
+    "serialNumber": 58
+  },
+  "sigAlgName": "dictum",
+  "sigAlgOID": "pretium",
+  "subjectAlternativeNames": [
+    {
+      "name": "Alejandra",
+      "type": 14
+    }
+  ],
+  "subjectDN": {
+    "commonName": "adipiscing",
+    "name": "Alfred"
+  },
+  "subjectX500Principal": {
+    "name": "Chauncey"
+  },
+  "type": "vitae",
+  "version": 5
+}

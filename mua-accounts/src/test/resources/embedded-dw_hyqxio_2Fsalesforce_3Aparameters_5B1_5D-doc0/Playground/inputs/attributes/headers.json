@@ -1,1 +1,19 @@
-{}
+{
+  "deliveryMode": 44,
+  "expiration": 49,
+  "priority": 17,
+  "messageId": "vitae",
+  "timestamp": 59,
+  "correlationId": "sodales",
+  "type": "amet",
+  "deliveryTime": 88,
+  "redelivered": false,
+  "destination": {
+    "destination": "adipiscing",
+    "destinationType": "nunc"
+  },
+  "replyTo": {
+    "destination": "a",
+    "destinationType": "nisi"
+  }
+}

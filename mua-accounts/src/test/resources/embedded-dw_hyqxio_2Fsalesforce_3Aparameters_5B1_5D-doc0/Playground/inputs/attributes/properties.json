@@ -1,0 +1,12 @@
+{
+  "jmsxProperties": {
+    "jmsxUserID": "a",
+    "jmsxAppID": "vitae",
+    "jmsxDeliveryCount": 14,
+    "jmsxGroupID": "sodales",
+    "jmsxGroupSeq": 20,
+    "jmsxProducerTXID": "venenatis",
+    "jmsxConsumerTXID": "faucibus",
+    "jmsxRcvTimestamp": 65
+  }
+}
