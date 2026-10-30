@@ -1,74 +1,75 @@
 {
-  "basicConstraints": 72,
+  "basicConstraints": 11,
   "criticalExtensionOIDs": [
-    "erat",
-    "ipsum"
+    "sodales",
+    "sit"
   ],
   "extendedKeyUsage": [
-    "sit",
-    "nunc",
-    "sit"
+    "sodales",
+    "faucibus",
+    "dictum"
   ],
   "extensions": [
     {
-      "criticality": true,
-      "oid": "erat"
+      "criticality": false,
+      "oid": "consectetur"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Daniel",
-      "type": 46
+      "name": "Chase",
+      "type": 67
     }
   ],
   "issuerDN": {
-    "commonName": "eget",
-    "name": "Alec"
+    "commonName": "elit",
+    "name": "Danilo"
   },
   "issuerUniqueID": [
-    true,
     false,
+    true,
     false
   ],
   "issuerX500Principal": {
-    "name": "Caleb"
+    "name": "Bryon"
   },
   "keyUsage": [
+    false,
     true,
-    false
+    true
   ],
-  "name": "Chas",
+  "name": "Broderick",
   "nonCriticalExtensionOIDs": [
-    "erat",
-    "ut"
+    "consectetur",
+    "sodales"
   ],
-  "notAfter": "2022-06-10",
-  "notBefore": "2025-06-17",
+  "notAfter": "2022-03-17",
+  "notBefore": "2023-04-22",
   "publicKey": {
-    "algorithm": "aliquam",
-    "modulus": 91,
-    "params": 66,
-    "publicKey": "libero"
+    "algorithm": "semper",
+    "modulus": 45,
+    "params": 39,
+    "publicKey": "convallis"
   },
-  "serialNumber": 52,
+  "serialNumber": 74,
   "serialNumberObject": {
-    "serialNumber": 37
+    "serialNumber": 16
   },
-  "sigAlgName": "nunc",
-  "sigAlgOID": "felis",
+  "sigAlgName": "eros",
+  "sigAlgOID": "lectus",
   "subjectAlternativeNames": [
     {
-      "name": "Cory",
-      "type": 2
+      "name": "Alaine",
+      "type": 26
     }
   ],
   "subjectDN": {
-    "commonName": "elit",
-    "name": "Dana"
+    "commonName": "lorem",
+    "name": "Alexa"
   },
   "subjectX500Principal": {
-    "name": "Cordell"
+    "name": "Albertine"
   },
-  "type": "at",
-  "version": 45
+  "type": "aliquam",
+  "version": 99
 }

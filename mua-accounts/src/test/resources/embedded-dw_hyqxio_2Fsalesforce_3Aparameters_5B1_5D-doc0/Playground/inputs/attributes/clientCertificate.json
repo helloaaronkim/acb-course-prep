@@ -1,28 +1,28 @@
 {
-  "basicConstraints": 9,
+  "basicConstraints": 36,
   "criticalExtensionOIDs": [
-    "eros",
-    "erat"
+    "at",
+    "arcu"
   ],
   "extendedKeyUsage": [
-    "molestie",
-    "nisi"
+    "dolor",
+    "nunc"
   ],
   "extensions": [
     {
-      "criticality": true,
-      "oid": "nunc"
+      "criticality": false,
+      "oid": "Nunc"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Alfreda",
-      "type": 0
+      "name": "Aleida",
+      "type": 83
     }
   ],
   "issuerDN": {
-    "commonName": "elit",
-    "name": "Ahmed"
+    "commonName": "lectus",
+    "name": "Chad"
   },
   "issuerUniqueID": [
     true,
@@ -30,46 +30,45 @@
     false
   ],
   "issuerX500Principal": {
-    "name": "Alanna"
+    "name": "Carlo"
   },
   "keyUsage": [
-    false,
-    false,
+    true,
     true
   ],
-  "name": "Claudio",
+  "name": "Alfreda",
   "nonCriticalExtensionOIDs": [
+    "libero",
     "molestie",
-    "amet",
-    "Lorem"
+    "molestie"
   ],
-  "notAfter": "2025-10-14",
-  "notBefore": "2025-09-21",
+  "notAfter": "2023-04-18",
+  "notBefore": "2022-03-16",
   "publicKey": {
-    "algorithm": "Nunc",
-    "modulus": 59,
-    "params": 71,
-    "publicKey": "nunc"
+    "algorithm": "elit",
+    "modulus": 68,
+    "params": 13,
+    "publicKey": "felis"
   },
-  "serialNumber": 4,
+  "serialNumber": 97,
   "serialNumberObject": {
-    "serialNumber": 58
+    "serialNumber": 51
   },
-  "sigAlgName": "venenatis",
-  "sigAlgOID": "sit",
+  "sigAlgName": "at",
+  "sigAlgOID": "molestie",
   "subjectAlternativeNames": [
     {
-      "name": "Alejandro",
-      "type": 94
+      "name": "Burt",
+      "type": 16
     }
   ],
   "subjectDN": {
-    "commonName": "felis",
-    "name": "Alix"
+    "commonName": "dolor",
+    "name": "Christopher"
   },
   "subjectX500Principal": {
-    "name": "Chong"
+    "name": "Clark"
   },
-  "type": "libero",
-  "version": 57
+  "type": "nibh",
+  "version": 28
 }

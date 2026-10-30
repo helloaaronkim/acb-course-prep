@@ -1,75 +1,73 @@
 {
-  "basicConstraints": 41,
+  "basicConstraints": 52,
   "criticalExtensionOIDs": [
-    "pulvinar",
-    "ut",
-    "Fusce"
+    "eros",
+    "convallis"
   ],
   "extendedKeyUsage": [
-    "molestie",
-    "In"
+    "consectetur",
+    "pulvinar"
   ],
   "extensions": [
     {
       "criticality": true,
-      "oid": "dolor"
+      "oid": "felis"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Collin",
-      "type": 79
+      "name": "Agatha",
+      "type": 96
     }
   ],
   "issuerDN": {
-    "commonName": "pulvinar",
-    "name": "Alberto"
+    "commonName": "a",
+    "name": "Alejandro"
   },
   "issuerUniqueID": [
     false,
-    false
+    false,
+    true
   ],
   "issuerX500Principal": {
-    "name": "Abraham"
+    "name": "Colin"
   },
   "keyUsage": [
     true,
-    true,
     false
   ],
-  "name": "Alecia",
+  "name": "Althea",
   "nonCriticalExtensionOIDs": [
-    "erat",
-    "erat",
-    "Nam"
+    "nunc",
+    "adipiscing"
   ],
-  "notAfter": "2024-03-05",
-  "notBefore": "2023-02-05",
+  "notAfter": "2023-10-15",
+  "notBefore": "2022-10-05",
   "publicKey": {
-    "algorithm": "viverra",
-    "modulus": 78,
-    "params": 50,
-    "publicKey": "mi"
+    "algorithm": "arcu",
+    "modulus": 99,
+    "params": 97,
+    "publicKey": "consectetur"
   },
-  "serialNumber": 94,
+  "serialNumber": 76,
   "serialNumberObject": {
-    "serialNumber": 13
+    "serialNumber": 31
   },
-  "sigAlgName": "sodales",
-  "sigAlgOID": "dolor",
+  "sigAlgName": "sit",
+  "sigAlgOID": "aliquam",
   "subjectAlternativeNames": [
     {
-      "name": "Amparo",
-      "type": 50
+      "name": "Adaline",
+      "type": 3
     }
   ],
   "subjectDN": {
-    "commonName": "sodales",
-    "name": "Alpha"
+    "commonName": "Lorem",
+    "name": "Adaline"
   },
   "subjectX500Principal": {
-    "name": "Daniel"
+    "name": "Amal"
   },
-  "type": "pretium",
-  "version": 19
+  "type": "dolor",
+  "version": 74
 }

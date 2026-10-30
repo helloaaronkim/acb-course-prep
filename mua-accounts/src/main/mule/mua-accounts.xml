@@ -1,6 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-  
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd  http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+  <http:listener-config basePath="/" name="Listener-config">
+    <http:listener-connection host="0.0.0.0" port="8081" readTimeout="300000"></http:listener-connection>
+  </http:listener-config>
+  <salesforce:sfdc-config name="Sfdc-config">
+    <salesforce:oauth-client-credentials-connection>
+      <salesforce:oauth-client-credentials clientId="3MVG9RcRPG0Y85buGx6wJENHvK4y714fhiXU6JIoy7ltQJ7oiLcBlgsph158xMBFA3pmtyUEk5FzCASzCSBgq" clientSecret="84612E1879FD6993D09683567AE19C5EA75AEC891E791AB882BFC840649CFD85" tokenUrl="https://trailsignup-1206b3e24ed4e1.my.salesforce.com/services/oauth2/token"></salesforce:oauth-client-credentials>
+    </salesforce:oauth-client-credentials-connection>
+  </salesforce:sfdc-config>
+  <flow name="getAccounts">
+    <http:listener allowedMethods="GET" config-ref="Listener-config" doc:id="tcfppr" doc:name="GET /accounts" path="/accounts">
+      <http:response reasonPhrase="Success">
+        <http:headers><![CDATA[#[output application/java
+---
+{
+	"state" : "CA"
+}]]]></http:headers>
+      </http:response>
+    </http:listener>
+    <flow-ref doc:id="qvylex" name="setEvent"></flow-ref>
+    <set-payload doc:id="yvhdtf" doc:name="Set payload" value="#[upper(attributes.queryParams.state as String ++ ' accounts')]"></set-payload>
+    <flow-ref doc:id="diawza" name="getSfdcAccounts"></flow-ref>
+    <logger doc:id="wozgvb" doc:name="Logger"></logger>
+  </flow>
+  <sub-flow doc:id="gdswqc" name="setEvent">
+    <set-variable doc:id="miiyav" doc:name="Set variable" value="#[attributes.queryParams.state default 'CA']" variableName="state"></set-variable>
+  </sub-flow>
+  <sub-flow doc:id="efvjqf" name="getSfdcAccounts">
+    <salesforce:query config-ref="Sfdc-config" doc:id="hyqxio" doc:name="Query">
+      <salesforce:salesforce-query><![CDATA[SELECT Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry FROM Account WHERE BillingState LIKE '%:state']]></salesforce:salesforce-query>
+      <salesforce:parameters><![CDATA[#[output application/java
+---
+{
+	"state" : vars.state
+}]]]></salesforce:parameters>
+    </salesforce:query>
+    <ee:transform doc:id="sobimn" doc:name="Transform Message">
+      <ee:message>
+        <ee:set-payload doc:id="rguebh" doc:name="Set payload"><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+  </sub-flow>
 </mule>
