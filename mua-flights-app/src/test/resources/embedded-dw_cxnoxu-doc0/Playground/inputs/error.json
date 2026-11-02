@@ -1,0 +1,29 @@
+{
+  "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In ac tincidunt libero.",
+  "detailedDescription": "at",
+  "failingComponent": "vitae",
+  "errorType": {
+    "identifier": "faucibus",
+    "namespace": "Calvin"
+  },
+  "cause": {
+    "message": "pulvinar",
+    "class": "faucibus"
+  },
+  "errorMessage": {},
+  "childErrors": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In ac tincidunt libero. Pellentesque pulvinar justo vitae molestie tempor nunc risus faucibus ipsum semper tempor erat erat sed mi. Aliquam convallis nunc felis molestie",
+      "detailedDescription": "sed",
+      "failingComponent": "consectetur",
+      "errorType": {
+        "identifier": "convallis",
+        "namespace": "Agueda"
+      },
+      "cause": {
+        "message": "erat",
+        "class": "lectus"
+      }
+    }
+  ]
+}

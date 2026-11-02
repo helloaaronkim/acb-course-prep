@@ -1,3 +1,32 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd">
+    <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
+        <american-flights-training-api:connection></american-flights-training-api:connection>
+    </american-flights-training-api:config>
+    <flow name="getAmericanFlghts">
+        <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="urinnn" doc:name="GET /american" path="/american"></http:listener>
+        <flow-ref doc:id="vgswpu" name="setCode"></flow-ref>
+        <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" doc:id="qcpomk" doc:name="Get flights" destination="#[vars.code]"></american-flights-training-api:get-flights>
+        <ee:transform doc:name="JSON to [Flight]" doc:id="lldgtt" >
+            <ee:message >
+                <ee:set-payload doc:name="Set payload" doc:id="cxnoxu" ><![CDATA[%dw 2.0
+output application/java
+---
+payload map (Payload0, indexOfPayload0) -> {
+  airlineName: Payload0.airlineName,
+  availableSeats: Payload0.emptySeats,
+  departureDate: Payload0.departureDate,
+  destination: Payload0.destination,
+  flightCode: Payload0.code,
+  origination: Payload0.origin,
+  planeType: Payload0.plane.planeType,
+  price: Payload0.price
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
 
+        <logger doc:name="Logger" doc:id="dgpxdt"/>
+    </flow>
+    <sub-flow doc:id="shdtkm" name="setCode">
+        <set-variable doc:id="nctmiz" doc:name="Set variable" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
+    </sub-flow>
 </mule>

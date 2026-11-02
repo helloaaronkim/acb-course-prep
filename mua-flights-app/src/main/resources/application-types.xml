@@ -13,5 +13,36 @@ type united_flights_json = {|
 
 ]]></types:shape>
     </types:type>
+    <types:type name="auto_shdtkm_code" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
   </types:catalog>
+  <types:enrichment select="#shdtkm">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="code" type="auto_shdtkm_code"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#whtmay">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Flight_pojo"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#lldgtt">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Flight_pojo"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
 </types:mule>

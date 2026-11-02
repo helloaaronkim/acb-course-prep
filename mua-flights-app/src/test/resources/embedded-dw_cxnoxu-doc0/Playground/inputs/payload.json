@@ -1,0 +1,16 @@
+[
+  {
+    "plane": {
+      "planeType": "at",
+      "totalSeats": 38
+    },
+    "code": "dolor",
+    "price": 0.36,
+    "origin": "nunc",
+    "destination": "dolor",
+    "id": 96,
+    "departureDate": "pulvinar",
+    "airlineName": "dui",
+    "emptySeats": 76
+  }
+]

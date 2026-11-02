@@ -1,0 +1,73 @@
+{
+  "basicConstraints": 77,
+  "criticalExtensionOIDs": [
+    "amet",
+    "viverra"
+  ],
+  "extendedKeyUsage": [
+    "Fusce",
+    "vitae"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "dolor"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Chadwick",
+      "type": 37
+    }
+  ],
+  "issuerDN": {
+    "commonName": "dolor",
+    "name": "Craig"
+  },
+  "issuerUniqueID": [
+    false,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Damion"
+  },
+  "keyUsage": [
+    false,
+    true,
+    false
+  ],
+  "name": "Allene",
+  "nonCriticalExtensionOIDs": [
+    "sodales",
+    "arcu"
+  ],
+  "notAfter": "2025-01-05",
+  "notBefore": "2025-11-22",
+  "publicKey": {
+    "algorithm": "adipiscing",
+    "modulus": 22,
+    "params": 57,
+    "publicKey": "venenatis"
+  },
+  "serialNumber": 2,
+  "serialNumberObject": {
+    "serialNumber": 44
+  },
+  "sigAlgName": "justo",
+  "sigAlgOID": "mi",
+  "subjectAlternativeNames": [
+    {
+      "name": "Chas",
+      "type": 81
+    }
+  ],
+  "subjectDN": {
+    "commonName": "Aliquam",
+    "name": "Ali"
+  },
+  "subjectX500Principal": {
+    "name": "Carlos"
+  },
+  "type": "lorem",
+  "version": 42
+}

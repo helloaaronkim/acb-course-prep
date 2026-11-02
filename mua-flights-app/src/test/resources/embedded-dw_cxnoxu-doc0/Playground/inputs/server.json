@@ -1,0 +1,22 @@
+{
+  "env": {
+    "entry": "Nam"
+  },
+  "fileSeparator": "consectetur",
+  "host": "justo",
+  "ip": "Aliquam",
+  "locale": "Lorem",
+  "javaVendor": "Pellentesque",
+  "javaVersion": "tincidunt",
+  "osArch": "dolor",
+  "osName": "Clifford",
+  "osVersion": "erat",
+  "systemProperties": {
+    "entry": "dolor"
+  },
+  "timeZone": "erat",
+  "tmpDir": "Lorem",
+  "userDir": "at",
+  "userHome": "libero",
+  "userName": "Albert"
+}

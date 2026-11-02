@@ -1,0 +1,75 @@
+{
+  "basicConstraints": 12,
+  "criticalExtensionOIDs": [
+    "risus",
+    "at",
+    "lectus"
+  ],
+  "extendedKeyUsage": [
+    "molestie",
+    "ac",
+    "Aliquam"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "consectetur"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Adina",
+      "type": 41
+    }
+  ],
+  "issuerDN": {
+    "commonName": "lectus",
+    "name": "Bruce"
+  },
+  "issuerUniqueID": [
+    true,
+    false,
+    true
+  ],
+  "issuerX500Principal": {
+    "name": "Adrianna"
+  },
+  "keyUsage": [
+    false,
+    true
+  ],
+  "name": "Darell",
+  "nonCriticalExtensionOIDs": [
+    "ipsum",
+    "vitae"
+  ],
+  "notAfter": "2024-05-21",
+  "notBefore": "2024-03-02",
+  "publicKey": {
+    "algorithm": "sodales",
+    "modulus": 45,
+    "params": 82,
+    "publicKey": "libero"
+  },
+  "serialNumber": 28,
+  "serialNumberObject": {
+    "serialNumber": 5
+  },
+  "sigAlgName": "sodales",
+  "sigAlgOID": "justo",
+  "subjectAlternativeNames": [
+    {
+      "name": "Almeda",
+      "type": 20
+    }
+  ],
+  "subjectDN": {
+    "commonName": "Fusce",
+    "name": "Amy"
+  },
+  "subjectX500Principal": {
+    "name": "Alejandro"
+  },
+  "type": "elit",
+  "version": 48
+}
