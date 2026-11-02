@@ -2,13 +2,16 @@
     <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
         <american-flights-training-api:connection></american-flights-training-api:connection>
     </american-flights-training-api:config>
+    <http:request-config basePath="${united.basePath}" name="Request-config" responseTimeout="300000">
+        <http:request-connection host="${united.host}" port="${united.port}"></http:request-connection>
+    </http:request-config>
     <flow name="getAmericanFlghts">
         <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="urinnn" doc:name="GET /american" path="/american"></http:listener>
         <flow-ref doc:id="vgswpu" name="setCode"></flow-ref>
-        <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" doc:id="qcpomk" doc:name="Get flights" destination="#[vars.code]"></american-flights-training-api:get-flights>
-        <ee:transform doc:name="JSON to [Flight]" doc:id="lldgtt" >
-            <ee:message >
-                <ee:set-payload doc:name="Set payload" doc:id="cxnoxu" ><![CDATA[%dw 2.0
+        <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" destination="#[vars.code]" doc:id="qcpomk" doc:name="Get flights"></american-flights-training-api:get-flights>
+        <ee:transform doc:id="lldgtt" doc:name="JSON to [Flight]">
+            <ee:message>
+                <ee:set-payload doc:id="cxnoxu" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 payload map (Payload0, indexOfPayload0) -> {
@@ -23,8 +26,36 @@ payload map (Payload0, indexOfPayload0) -> {
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
-
-        <logger doc:name="Logger" doc:id="dgpxdt"/>
+        <logger doc:id="dgpxdt" doc:name="Logger"></logger>
+    </flow>
+    <flow name="getUnitedFlights">
+        <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="cybsly" doc:name="GET /united" path="/united"></http:listener>
+        <flow-ref doc:id="nhsnib" name="setCode"></flow-ref>
+        <http:request config-ref="Request-config" doc:id="wujthl" doc:name="getFlights" path="/flights/{code}">
+            <http:uri-params><![CDATA[#[output application/java
+---
+{
+	"code" : vars.code
+}]]]></http:uri-params>
+        </http:request>
+        <ee:transform doc:name="Transform Message" doc:id="uknwoz" >
+            <ee:message >
+                <ee:set-payload doc:name="Set payload" doc:id="ewzgdk" ><![CDATA[%dw 2.0
+output application/java
+---
+payload.flights map (flight1, indexOfFlights1) -> {
+  airlineName: flight1.airlineName ++ " Airlines",
+  availableSeats: flight1.emptySeats,
+  departureDate: flight1.departureDate,
+  destination: flight1.destination,
+  flightCode: flight1.code,
+  origination: flight1.origin,
+  planeType: flight1.planeType,
+  price: flight1.price
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="fhrdvo" doc:name="Logger"></logger>
     </flow>
     <sub-flow doc:id="shdtkm" name="setCode">
         <set-variable doc:id="nctmiz" doc:name="Set variable" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
