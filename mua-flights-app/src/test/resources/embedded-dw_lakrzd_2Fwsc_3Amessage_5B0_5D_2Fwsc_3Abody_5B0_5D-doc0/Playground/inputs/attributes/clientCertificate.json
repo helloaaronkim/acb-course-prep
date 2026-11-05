@@ -1,77 +1,75 @@
 {
-  "basicConstraints": 44,
+  "basicConstraints": 61,
   "criticalExtensionOIDs": [
-    "lorem",
-    "In",
-    "pulvinar"
+    "Nam",
+    "sit",
+    "ipsum"
   ],
   "extendedKeyUsage": [
-    "risus",
-    "dolor",
-    "tincidunt"
+    "nisi",
+    "justo",
+    "nisi"
   ],
   "extensions": [
     {
       "criticality": false,
-      "oid": "vitae"
+      "oid": "a"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Cedrick",
-      "type": 91
+      "name": "Cornell",
+      "type": 21
     }
   ],
   "issuerDN": {
-    "commonName": "nibh",
-    "name": "Allen"
+    "commonName": "sodales",
+    "name": "Alfonso"
   },
   "issuerUniqueID": [
-    true,
     false,
+    true,
     false
   ],
   "issuerX500Principal": {
-    "name": "Alethea"
+    "name": "Christian"
   },
   "keyUsage": [
     false,
-    false,
     true
   ],
-  "name": "Carlton",
+  "name": "Curt",
   "nonCriticalExtensionOIDs": [
-    "adipiscing",
-    "a",
-    "at"
+    "lorem",
+    "sed"
   ],
-  "notAfter": "2022-07-09",
-  "notBefore": "2022-08-13",
+  "notAfter": "2022-11-05",
+  "notBefore": "2022-09-03",
   "publicKey": {
-    "algorithm": "Nunc",
-    "modulus": 76,
-    "params": 42,
-    "publicKey": "nunc"
+    "algorithm": "pretium",
+    "modulus": 14,
+    "params": 7,
+    "publicKey": "nisi"
   },
-  "serialNumber": 88,
+  "serialNumber": 52,
   "serialNumberObject": {
-    "serialNumber": 71
+    "serialNumber": 57
   },
-  "sigAlgName": "lectus",
-  "sigAlgOID": "nunc",
+  "sigAlgName": "nisi",
+  "sigAlgOID": "Lorem",
   "subjectAlternativeNames": [
     {
-      "name": "Danny",
-      "type": 9
+      "name": "Alisa",
+      "type": 5
     }
   ],
   "subjectDN": {
-    "commonName": "ipsum",
-    "name": "Aisha"
+    "commonName": "at",
+    "name": "Carter"
   },
   "subjectX500Principal": {
-    "name": "Alita"
+    "name": "Carlos"
   },
-  "type": "sed",
-  "version": 68
+  "type": "mi",
+  "version": 8
 }

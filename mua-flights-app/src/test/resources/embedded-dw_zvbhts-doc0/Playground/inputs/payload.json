@@ -1,16 +1,1 @@
-{
-  "body": {
-    "findFlightResponse": {
-      "return": {
-        "airlineName": "arcu",
-        "code": "nunc",
-        "departureDate": "vitae",
-        "destination": "eget",
-        "emptySeats": 10,
-        "origin": "justo",
-        "planeType": "Aliquam",
-        "price": 0.19
-      }
-    }
-  }
-}
+{}
