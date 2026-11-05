@@ -1,0 +1,77 @@
+{
+  "basicConstraints": 44,
+  "criticalExtensionOIDs": [
+    "lorem",
+    "In",
+    "pulvinar"
+  ],
+  "extendedKeyUsage": [
+    "risus",
+    "dolor",
+    "tincidunt"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "vitae"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Cedrick",
+      "type": 91
+    }
+  ],
+  "issuerDN": {
+    "commonName": "nibh",
+    "name": "Allen"
+  },
+  "issuerUniqueID": [
+    true,
+    false,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Alethea"
+  },
+  "keyUsage": [
+    false,
+    false,
+    true
+  ],
+  "name": "Carlton",
+  "nonCriticalExtensionOIDs": [
+    "adipiscing",
+    "a",
+    "at"
+  ],
+  "notAfter": "2022-07-09",
+  "notBefore": "2022-08-13",
+  "publicKey": {
+    "algorithm": "Nunc",
+    "modulus": 76,
+    "params": 42,
+    "publicKey": "nunc"
+  },
+  "serialNumber": 88,
+  "serialNumberObject": {
+    "serialNumber": 71
+  },
+  "sigAlgName": "lectus",
+  "sigAlgOID": "nunc",
+  "subjectAlternativeNames": [
+    {
+      "name": "Danny",
+      "type": 9
+    }
+  ],
+  "subjectDN": {
+    "commonName": "ipsum",
+    "name": "Aisha"
+  },
+  "subjectX500Principal": {
+    "name": "Alita"
+  },
+  "type": "sed",
+  "version": 68
+}

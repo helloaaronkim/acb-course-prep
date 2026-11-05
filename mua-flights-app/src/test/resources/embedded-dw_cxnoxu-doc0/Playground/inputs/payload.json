@@ -1,1 +1,16 @@
-{}
+[
+  {
+    "plane": {
+      "planeType": "venenatis",
+      "totalSeats": 86
+    },
+    "code": "eget",
+    "price": 0.87,
+    "origin": "faucibus",
+    "destination": "faucibus",
+    "id": 21,
+    "departureDate": "consectetur",
+    "airlineName": "Lorem",
+    "emptySeats": 0
+  }
+]

@@ -1,10 +1,15 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd">
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd  http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
     <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
         <american-flights-training-api:connection></american-flights-training-api:connection>
     </american-flights-training-api:config>
     <http:request-config basePath="${united.basePath}" name="Request-config" responseTimeout="300000">
         <http:request-connection host="${united.host}" port="${united.port}"></http:request-connection>
     </http:request-config>
+    <wsc:config name="Delta-Config">
+        <wsc:connection port="${delta.port}" service="${delta.service}" wsdlLocation="${delta.wsdl}">
+            <wsc:web-service-security actor=""></wsc:web-service-security>
+        </wsc:connection>
+    </wsc:config>
     <flow name="getAmericanFlghts">
         <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="urinnn" doc:name="GET /american" path="/american"></http:listener>
         <flow-ref doc:id="vgswpu" name="setCode"></flow-ref>
@@ -38,9 +43,9 @@ payload map (Payload0, indexOfPayload0) -> {
 	"code" : vars.code
 }]]]></http:uri-params>
         </http:request>
-        <ee:transform doc:name="Transform Message" doc:id="uknwoz" >
-            <ee:message >
-                <ee:set-payload doc:name="Set payload" doc:id="ewzgdk" ><![CDATA[%dw 2.0
+        <ee:transform doc:id="uknwoz" doc:name="JSON to [Flight]">
+            <ee:message>
+                <ee:set-payload doc:id="ewzgdk" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 payload.flights map (flight1, indexOfFlights1) -> {
@@ -56,6 +61,40 @@ payload.flights map (flight1, indexOfFlights1) -> {
             </ee:message>
         </ee:transform>
         <logger doc:id="fhrdvo" doc:name="Logger"></logger>
+    </flow>
+    <flow name="getDeltaFlights">
+        <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="bhuyhx" doc:name="GET /united" path="/delta"></http:listener>
+        <flow-ref doc:id="txzhoh" name="setCode"></flow-ref>
+        <wsc:consume config-ref="Delta-Config" doc:id="lakrzd" doc:name="Consume" operation="findFlight">
+            <wsc:message>
+                <wsc:body><![CDATA[#[%dw 2.0
+output application/xml
+---
+  {
+    findFlight: {
+      destination: vars.code
+    }
+  }]]]></wsc:body>
+            </wsc:message>
+        </wsc:consume>
+        <ee:transform doc:id="bysqxg" doc:name="JSON to java">
+            <ee:message>
+                <ee:set-payload doc:id="zvbhts" doc:name="Set payload"><![CDATA[%dw 2.0
+output application/java
+---
+payload.body.findFlightResponse.*return map {
+  airlineName: $.airlineName default "" ++ " Airlines",
+  availableSeats: $.emptySeats,
+  departureDate: $.departureDate,
+  destination: $.destination,
+  flightCode: $.code,
+  origination: $.origin,
+  planeType: $.planeType,
+  price: $.price
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="fbyhlc" doc:name="Logger"></logger>
     </flow>
     <sub-flow doc:id="shdtkm" name="setCode">
         <set-variable doc:id="nctmiz" doc:name="Set variable" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
