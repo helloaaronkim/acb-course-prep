@@ -9,9 +9,8 @@
     <wsc:connection port="${delta.port}" service="${delta.service}" wsdlLocation="${delta.wsdl}">
     </wsc:connection>
   </wsc:config>
-  <flow name="getAmericanFlghts">
-    <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="urinnn" doc:name="GET /american" path="/american"></http:listener>
-    <flow-ref doc:id="vgswpu" name="setCode"></flow-ref>
+  <flow name="getAmericanFlights">
+    
     <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" destination="#[vars.code]" doc:id="qcpomk" doc:name="Get flights"></american-flights-training-api:get-flights>
     <ee:transform doc:id="lldgtt" doc:name="JSON to [Flight]">
       <ee:message>
@@ -33,8 +32,7 @@ payload map (Payload0, indexOfPayload0) -> {
     <logger doc:id="dgpxdt" doc:name="Logger"></logger>
   </flow>
   <flow name="getUnitedFlights">
-    <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="cybsly" doc:name="GET /united" path="/united"></http:listener>
-    <flow-ref doc:id="nhsnib" name="setCode"></flow-ref>
+    
     <http:request config-ref="Request-config" doc:id="wujthl" doc:name="getFlights" path="/flights/{code}">
       <http:uri-params><![CDATA[#[output application/java
 ---
@@ -62,8 +60,7 @@ payload.flights map (flight1, indexOfFlights1) -> {
     <logger doc:id="fhrdvo" doc:name="Logger"></logger>
   </flow>
   <flow name="getDeltaFlights">
-    <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="bhuyhx" doc:name="GET /united" path="/delta"></http:listener>
-    <flow-ref doc:id="txzhoh" name="setCode"></flow-ref>
+    
     <wsc:consume config-ref="Delta-Config" doc:id="lakrzd" doc:name="Consume" operation="findFlight">
       <wsc:message>
         <wsc:body><![CDATA[#[%dw 2.0
@@ -95,14 +92,15 @@ payload.body.findFlightResponse.*return map {
     </ee:transform>
     <logger doc:id="fbyhlc" doc:name="Logger"></logger>
   </flow>
-  <sub-flow doc:id="shdtkm" name="setCode">
-    <set-variable doc:id="nctmiz" doc:name="Set variable" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
+  <sub-flow doc:id="shdtkm" name="setVars">
+    <set-variable doc:id="nctmiz" doc:name="setCode" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
+    <set-variable doc:name="Set variable" doc:id="zcbfcd" variableName="airline" value="#[attributes.queryParams.airline]"/>
   </sub-flow>
   <flow name="getAllAirlineFlights">
-    <http:listener doc:name="Listener" doc:id="fpxtwe" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET"/>
+    
     <scatter-gather doc:name="Scatter gather" doc:id="cddudn">
       <route>
-        <flow-ref doc:name="american" name="getAmericanFlghts"/>
+        <flow-ref doc:name="american" name="getAmericanFlights"/>
       </route>
       <route>
         <flow-ref doc:name="united" name="getUnitedFlights"/>
@@ -122,4 +120,31 @@ flatten(payload..payload)]]></ee:set-payload>
             </ee:message>
         </ee:transform>
     <logger doc:name="Logger" doc:id="ntsuez"/></flow>
+<flow name="getFlights">
+    <http:listener doc:name="Listener" doc:id="lwsoev" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET"/>
+    <flow-ref doc:name="Flow-ref" name="setVars"/>
+    <choice doc:name="Choice" doc:id="ukhxew">
+        
+    <when doc:name="american" expression='#[vars.airline == "american"]'>
+        <flow-ref doc:name="american" name="getAmericanFlights"/></when>
+      <when doc:name="united" expression="#[vars.airline == 'united']">
+        <flow-ref doc:name="united" name="getUnitedFlights"/>
+          
+      </when>
+      <when doc:name="delta" expression="#[vars.airline == 'delta']">
+        <flow-ref doc:name="delta" name="getDeltaFlights"/>
+          
+      </when>
+      <otherwise>
+        <flow-ref doc:name="all" name="getAllAirlineFlights"/>
+      </otherwise></choice>
+    <ee:transform doc:name="Transform Message" doc:id="qeusmc" >
+      <ee:message >
+        <ee:set-payload doc:name="Set payload" doc:id="rygkaq" ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+    <logger doc:name="Logger" doc:id="qbstsc"/></flow>
 </mule>

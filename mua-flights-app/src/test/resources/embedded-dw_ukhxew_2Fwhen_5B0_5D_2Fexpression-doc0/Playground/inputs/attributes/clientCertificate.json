@@ -1,0 +1,73 @@
+{
+  "basicConstraints": 98,
+  "criticalExtensionOIDs": [
+    "dictum",
+    "lectus"
+  ],
+  "extendedKeyUsage": [
+    "dolor",
+    "erat"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "nunc"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Amelia",
+      "type": 7
+    }
+  ],
+  "issuerDN": {
+    "commonName": "eros",
+    "name": "Chuck"
+  },
+  "issuerUniqueID": [
+    true,
+    true,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Alec"
+  },
+  "keyUsage": [
+    true,
+    false
+  ],
+  "name": "Cliff",
+  "nonCriticalExtensionOIDs": [
+    "tincidunt",
+    "lorem"
+  ],
+  "notAfter": "2025-02-04",
+  "notBefore": "2024-04-12",
+  "publicKey": {
+    "algorithm": "dui",
+    "modulus": 51,
+    "params": 54,
+    "publicKey": "erat"
+  },
+  "serialNumber": 63,
+  "serialNumberObject": {
+    "serialNumber": 71
+  },
+  "sigAlgName": "nibh",
+  "sigAlgOID": "erat",
+  "subjectAlternativeNames": [
+    {
+      "name": "Anabel",
+      "type": 63
+    }
+  ],
+  "subjectDN": {
+    "commonName": "ipsum",
+    "name": "Corey"
+  },
+  "subjectX500Principal": {
+    "name": "Clay"
+  },
+  "type": "viverra",
+  "version": 83
+}

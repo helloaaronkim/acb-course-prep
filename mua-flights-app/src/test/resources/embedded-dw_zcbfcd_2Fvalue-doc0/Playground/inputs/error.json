@@ -1,0 +1,29 @@
+{
+  "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In ac tincidunt libero. Pellentesque pulvinar justo vitae molestie tempor nunc risus faucibus ipsum semper tempor erat erat sed mi. Aliquam convallis nunc",
+  "detailedDescription": "ipsum",
+  "failingComponent": "felis",
+  "errorType": {
+    "identifier": "a",
+    "namespace": "Alexis"
+  },
+  "cause": {
+    "message": "mi",
+    "class": "eros"
+  },
+  "errorMessage": {},
+  "childErrors": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce at arcu lectus. Nam lorem nibh pretium a nisi a viverra consectetur dui. In ac tincidunt libero. Pellentesque pulvinar justo vitae molestie tempor nunc risus faucibus ipsum semper tempor erat erat sed mi. Aliquam convallis nunc felis molestie sodales dolor sodales ut. Nunc aliquam eros eget dictum",
+      "detailedDescription": "a",
+      "failingComponent": "sodales",
+      "errorType": {
+        "identifier": "Aliquam",
+        "namespace": "Adelle"
+      },
+      "cause": {
+        "message": "erat",
+        "class": "nibh"
+      }
+    }
+  ]
+}

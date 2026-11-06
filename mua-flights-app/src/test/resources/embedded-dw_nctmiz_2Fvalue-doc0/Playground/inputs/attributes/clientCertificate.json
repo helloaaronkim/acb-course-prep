@@ -1,75 +1,75 @@
 {
-  "basicConstraints": 12,
+  "basicConstraints": 90,
   "criticalExtensionOIDs": [
-    "risus",
-    "at",
-    "lectus"
+    "tempor",
+    "dui",
+    "at"
   ],
   "extendedKeyUsage": [
-    "molestie",
-    "ac",
-    "Aliquam"
+    "semper",
+    "ipsum",
+    "mi"
   ],
   "extensions": [
     {
-      "criticality": true,
-      "oid": "consectetur"
+      "criticality": false,
+      "oid": "libero"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Adina",
-      "type": 41
+      "name": "Alphonse",
+      "type": 59
     }
   ],
   "issuerDN": {
-    "commonName": "lectus",
-    "name": "Bruce"
+    "commonName": "erat",
+    "name": "Alethia"
   },
   "issuerUniqueID": [
     true,
-    false,
-    true
+    false
   ],
   "issuerX500Principal": {
-    "name": "Adrianna"
+    "name": "Alexia"
   },
   "keyUsage": [
     false,
-    true
+    false,
+    false
   ],
-  "name": "Darell",
+  "name": "Curtis",
   "nonCriticalExtensionOIDs": [
-    "ipsum",
-    "vitae"
+    "erat",
+    "at"
   ],
-  "notAfter": "2024-05-21",
-  "notBefore": "2024-03-02",
+  "notAfter": "2022-10-30",
+  "notBefore": "2023-05-22",
   "publicKey": {
-    "algorithm": "sodales",
-    "modulus": 45,
-    "params": 82,
-    "publicKey": "libero"
+    "algorithm": "a",
+    "modulus": 3,
+    "params": 84,
+    "publicKey": "nibh"
   },
-  "serialNumber": 28,
+  "serialNumber": 7,
   "serialNumberObject": {
-    "serialNumber": 5
+    "serialNumber": 45
   },
-  "sigAlgName": "sodales",
-  "sigAlgOID": "justo",
+  "sigAlgName": "nibh",
+  "sigAlgOID": "vitae",
   "subjectAlternativeNames": [
     {
-      "name": "Almeda",
-      "type": 20
+      "name": "Alleen",
+      "type": 39
     }
   ],
   "subjectDN": {
-    "commonName": "Fusce",
-    "name": "Amy"
+    "commonName": "pulvinar",
+    "name": "Anastasia"
   },
   "subjectX500Principal": {
-    "name": "Alejandro"
+    "name": "Carroll"
   },
-  "type": "elit",
-  "version": 48
+  "type": "molestie",
+  "version": 36
 }

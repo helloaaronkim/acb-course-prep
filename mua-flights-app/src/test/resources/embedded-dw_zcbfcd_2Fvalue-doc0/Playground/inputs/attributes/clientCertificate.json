@@ -1,0 +1,75 @@
+{
+  "basicConstraints": 84,
+  "criticalExtensionOIDs": [
+    "Nunc",
+    "libero"
+  ],
+  "extendedKeyUsage": [
+    "amet",
+    "sit",
+    "tempor"
+  ],
+  "extensions": [
+    {
+      "criticality": true,
+      "oid": "tempor"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Carlton",
+      "type": 83
+    }
+  ],
+  "issuerDN": {
+    "commonName": "lorem",
+    "name": "Abraham"
+  },
+  "issuerUniqueID": [
+    true,
+    true,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Damion"
+  },
+  "keyUsage": [
+    false,
+    true,
+    false
+  ],
+  "name": "Damon",
+  "nonCriticalExtensionOIDs": [
+    "ut",
+    "convallis"
+  ],
+  "notAfter": "2023-02-12",
+  "notBefore": "2022-12-02",
+  "publicKey": {
+    "algorithm": "dui",
+    "modulus": 83,
+    "params": 45,
+    "publicKey": "Lorem"
+  },
+  "serialNumber": 94,
+  "serialNumberObject": {
+    "serialNumber": 91
+  },
+  "sigAlgName": "Nam",
+  "sigAlgOID": "semper",
+  "subjectAlternativeNames": [
+    {
+      "name": "Cedric",
+      "type": 48
+    }
+  ],
+  "subjectDN": {
+    "commonName": "nunc",
+    "name": "Alana"
+  },
+  "subjectX500Principal": {
+    "name": "Allan"
+  },
+  "type": "mi",
+  "version": 69
+}
