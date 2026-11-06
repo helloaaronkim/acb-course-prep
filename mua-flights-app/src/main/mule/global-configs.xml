@@ -2,18 +2,7 @@
   <configuration-properties doc:id="nvsodo" encoding="UTF-8" file="/Users/woohyeok.kim/Documents/Work/training/dex406/acb-course-prep/mua-flights-app/src/main/resources/config.yaml"></configuration-properties>
   <error-handler name="global-error-handler">
     
-    <on-error-propagate doc:name="On-error-propagate" type="ANY">
-      <ee:transform doc:name="error.desc" doc:id="qhdzma" >
-              <ee:message >
-                <ee:set-payload doc:name="Set payload" doc:id="vrcxnt" ><![CDATA[%dw 2.0
-output application/json
----
-message: "error occurred! via propagate"]]></ee:set-payload>
-              </ee:message>
-            </ee:transform>
-      <logger doc:name="Logger" doc:id="plgjyd"/>
-        
-    </on-error-propagate>
+    
     <!-- [ACB] <on-error-continue doc:name="On-error-continue" type="ANY">
       <ee:transform doc:name="error.desc" doc:id="dbqlng" >
                     <ee:message >
@@ -25,6 +14,31 @@ message: "error occurred! via continue"]]></ee:set-payload>
                   </ee:transform>
         
     </on-error-continue> [ACB] -->
+    <on-error-propagate doc:name="On-error-propagate" type="WSC:CONNECTIVITY, WSC:INVALID_WSDL">
+          <ee:transform doc:name="error.desc" doc:id="rynvfr" >
+                  <ee:message >
+                    <ee:set-payload doc:name="Set payload" doc:id="vkgaaj" ><![CDATA[%dw 2.0
+output application/json
+---
+message: 'Data unavailable, try again later. ' ++ 
+(error.description default "")]]></ee:set-payload>
+                  </ee:message>
+                </ee:transform>
+          <logger doc:name="Logger" doc:id="nipqut"/>
+            
+        </on-error-propagate>
+    <on-error-propagate doc:name="On-error-propagate" type="ANY">
+          <ee:transform doc:name="error.desc" doc:id="rjxmvj" >
+                  <ee:message >
+                    <ee:set-payload doc:name="Set payload" doc:id="gqrqsz" ><![CDATA[%dw 2.0
+output application/json
+---
+message: "error occurred! via propagate"]]></ee:set-payload>
+                  </ee:message>
+                </ee:transform>
+          <logger doc:name="Logger" doc:id="upfoxk"/>
+            
+        </on-error-propagate>
   </error-handler>
   <configuration doc:id="dbanay" doc:name="Configuration" defaultErrorHandler-ref="global-error-handler"></configuration>
 </mule>

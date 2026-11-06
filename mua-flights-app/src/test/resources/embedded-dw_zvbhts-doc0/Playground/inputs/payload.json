@@ -1,16 +1,1 @@
-{
-  "body": {
-    "findFlightResponse": {
-      "return": {
-        "airlineName": "libero",
-        "code": "sit",
-        "departureDate": "amet",
-        "destination": "eget",
-        "emptySeats": 55,
-        "origin": "dolor",
-        "planeType": "ipsum",
-        "price": 0.52
-      }
-    }
-  }
-}
+{}
