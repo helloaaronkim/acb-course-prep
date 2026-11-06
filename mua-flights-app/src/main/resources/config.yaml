@@ -16,6 +16,6 @@ united:
   basePath: "/united"
   
 delta:
-  wsdl: "http://ilt.mule-training.com/delta?wsdl"
+  wsdl: "http://ilt.mule-training-aaa.com/delta?wsdl"
   service: "TicketServiceService"
   port: "DeltaFlightsServiceImplPort"

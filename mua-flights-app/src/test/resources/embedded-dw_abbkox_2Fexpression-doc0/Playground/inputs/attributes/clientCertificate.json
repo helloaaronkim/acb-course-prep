@@ -1,74 +1,74 @@
 {
-  "basicConstraints": 55,
+  "basicConstraints": 15,
   "criticalExtensionOIDs": [
     "dictum",
-    "eros"
+    "sed"
   ],
   "extendedKeyUsage": [
-    "adipiscing",
-    "vitae",
+    "amet",
     "viverra"
   ],
   "extensions": [
     {
       "criticality": false,
-      "oid": "lectus"
+      "oid": "sodales"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Conrad",
-      "type": 47
+      "name": "Adah",
+      "type": 1
     }
   ],
   "issuerDN": {
-    "commonName": "viverra",
-    "name": "Carroll"
+    "commonName": "pretium",
+    "name": "Abram"
   },
   "issuerUniqueID": [
-    false,
-    false,
-    false
+    true,
+    true
   ],
   "issuerX500Principal": {
-    "name": "Broderick"
+    "name": "Alexis"
   },
   "keyUsage": [
-    false,
-    false
+    true,
+    true,
+    true
   ],
-  "name": "Aja",
+  "name": "Ailene",
   "nonCriticalExtensionOIDs": [
     "ut",
-    "a"
+    "sed",
+    "dui"
   ],
-  "notAfter": "2023-02-25",
-  "notBefore": "2022-08-08",
+  "notAfter": "2026-03-08",
+  "notBefore": "2026-02-15",
   "publicKey": {
-    "algorithm": "dolor",
-    "modulus": 48,
-    "params": 91,
-    "publicKey": "Nunc"
+    "algorithm": "vitae",
+    "modulus": 31,
+    "params": 16,
+    "publicKey": "dui"
   },
-  "serialNumber": 30,
+  "serialNumber": 41,
   "serialNumberObject": {
-    "serialNumber": 69
+    "serialNumber": 86
   },
-  "sigAlgName": "faucibus",
-  "sigAlgOID": "consectetur",
+  "sigAlgName": "semper",
+  "sigAlgOID": "eros",
   "subjectAlternativeNames": [
     {
-      "name": "Cristopher",
-      "type": 52
+      "name": "Alecia",
+      "type": 32
     }
   ],
   "subjectDN": {
-    "commonName": "consectetur",
-    "name": "Ami"
+    "commonName": "dolor",
+    "name": "Alise"
   },
   "subjectX500Principal": {
-    "name": "Claud"
+    "name": "Aiko"
   },
-  "type": "eget",
-  "version": 46
+  "type": "dolor",
+  "version": 6
 }
