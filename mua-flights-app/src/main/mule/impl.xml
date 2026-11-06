@@ -102,13 +102,63 @@ payload.body.findFlightResponse.*return map {
     
     <scatter-gather doc:name="Scatter gather" doc:id="cddudn">
       <route>
-        <flow-ref doc:name="american" name="getAmericanFlights"/>
+        <try doc:name="Try" doc:id="nwiqlv">
+          <flow-ref doc:name="american" name="getAmericanFlights"/>
+          <error-handler>
+            <on-error-continue >
+              <ee:transform doc:name="Transform Message" doc:id="ztsobf" >
+                <ee:message >
+                  <ee:set-payload doc:name="Set payload" doc:id="fgvoai" ><![CDATA[%dw 2.0
+output application/java
+---
+[ ]]]></ee:set-payload>
+                </ee:message>
+              </ee:transform>
+                
+            </on-error-continue>
+          </error-handler>
+            
+        </try>
       </route>
       <route>
-        <flow-ref doc:name="united" name="getUnitedFlights"/>
+        
+        <try doc:name="Try" doc:id="mivnml">
+          <flow-ref doc:name="united" name="getUnitedFlights"/>
+          <error-handler>
+            <on-error-continue >
+                          <ee:transform doc:name="Transform Message" doc:id="devihc" >
+                            <ee:message >
+                              <ee:set-payload doc:name="Set payload" doc:id="xblohc" ><![CDATA[%dw 2.0
+output application/java
+---
+[ ]]]></ee:set-payload>
+                            </ee:message>
+                          </ee:transform>
+                            
+                        </on-error-continue>
+          </error-handler>
+            
+        </try>
       </route>
       <route doc:name="Route">
-        <flow-ref doc:name="delta" name="getDeltaFlights"/>
+        
+        <try doc:name="Try" doc:id="pvzyao">
+          <flow-ref doc:name="delta" name="getDeltaFlights"/>
+          <error-handler>
+            <on-error-continue >
+                          <ee:transform doc:name="Transform Message" doc:id="xiyarf" >
+                            <ee:message >
+                              <ee:set-payload doc:name="Set payload" doc:id="wjsocg" ><![CDATA[%dw 2.0
+output application/java
+---
+[ ]]]></ee:set-payload>
+                            </ee:message>
+                          </ee:transform>
+                            
+                        </on-error-continue>
+          </error-handler>
+            
+        </try>
           
       </route>
         
