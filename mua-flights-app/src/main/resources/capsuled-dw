@@ -1,0 +1,13 @@
+%dw 2.0
+output application/java
+---
+payload map (Payload0, indexOfPayload0) -> {
+  airlineName: Payload0.airlineName,
+  availableSeats: Payload0.emptySeats,
+  departureDate: Payload0.departureDate,
+  destination: Payload0.destination,
+  flightCode: Payload0.code,
+  origination: Payload0.origin,
+  planeType: Payload0.plane.planeType,
+  price: Payload0.price
+}

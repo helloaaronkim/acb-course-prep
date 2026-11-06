@@ -12,20 +12,11 @@
         <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" destination="#[vars.code]" doc:id="qcpomk" doc:name="Get flights"></american-flights-training-api:get-flights>
         <ee:transform doc:id="lldgtt" doc:name="JSON to [Flight]">
             <ee:message>
-                <ee:set-payload doc:id="cxnoxu" doc:name="Set payload"><![CDATA[%dw 2.0
-output application/java
----
-payload map (Payload0, indexOfPayload0) -> {
-  airlineName: Payload0.airlineName,
-  availableSeats: Payload0.emptySeats,
-  departureDate: Payload0.departureDate,
-  destination: Payload0.destination,
-  flightCode: Payload0.code,
-  origination: Payload0.origin,
-  planeType: Payload0.plane.planeType,
-  price: Payload0.price
-}]]></ee:set-payload>
+                <ee:set-payload doc:id="cxnoxu" doc:name="Set payload" resource="capsuled-dw"/>
             </ee:message>
+            <ee:variables>
+                <ee:set-variable variableName="NewVariable1"><![CDATA["hohoho"]]></ee:set-variable>
+            </ee:variables>    
         </ee:transform>
         <logger doc:id="dgpxdt" doc:name="Logger"></logger>
     </flow>
