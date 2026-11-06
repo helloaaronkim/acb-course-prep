@@ -1,3 +1,30 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-    <configuration-properties doc:id="nvsodo" file="/Users/woohyeok.kim/Documents/Work/training/dex406/acb-course-prep/mua-flights-app/src/main/resources/config.yaml" encoding="UTF-8"></configuration-properties>
+  <configuration-properties doc:id="nvsodo" encoding="UTF-8" file="/Users/woohyeok.kim/Documents/Work/training/dex406/acb-course-prep/mua-flights-app/src/main/resources/config.yaml"></configuration-properties>
+  <error-handler name="global-error-handler">
+    
+    <on-error-propagate doc:name="On-error-propagate" type="ANY">
+      <ee:transform doc:name="error.desc" doc:id="qhdzma" >
+              <ee:message >
+                <ee:set-payload doc:name="Set payload" doc:id="vrcxnt" ><![CDATA[%dw 2.0
+output application/json
+---
+message: "error occurred! via propagate"]]></ee:set-payload>
+              </ee:message>
+            </ee:transform>
+      <logger doc:name="Logger" doc:id="plgjyd"/>
+        
+    </on-error-propagate>
+    <!-- [ACB] <on-error-continue doc:name="On-error-continue" type="ANY">
+      <ee:transform doc:name="error.desc" doc:id="dbqlng" >
+                    <ee:message >
+                      <ee:set-payload doc:name="Set payload" doc:id="puxwtw" ><![CDATA[%dw 2.0
+output application/json
+&#45;&#45;-
+message: "error occurred! via continue"]]></ee:set-payload>
+                    </ee:message>
+                  </ee:transform>
+        
+    </on-error-continue> [ACB] -->
+  </error-handler>
+  <configuration doc:id="dbanay" doc:name="Configuration" defaultErrorHandler-ref="global-error-handler"></configuration>
 </mule>
