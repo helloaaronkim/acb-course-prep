@@ -123,7 +123,10 @@ flatten(payload..payload)]]></ee:set-payload>
         </ee:transform>
     <logger doc:name="Logger" doc:id="ntsuez"/></flow>
 <flow name="getFlights">
-    <http:listener doc:name="Listener" doc:id="lwsoev" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET"/>
+    <http:listener doc:name="Listener" doc:id="lwsoev" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET">
+      <http:response statusCode="#[vars.httpStatus default 200]" />
+      <http:error-response statusCode="#[vars.httpStatus default 500]" />
+    </http:listener>
     <flow-ref doc:name="Flow-ref" name="setVars"/>
     <validation:is-true doc:name="Is true" doc:id="abbkox" expression="#[['SFO','LAX','CLE','PDX','PDF'] contains vars.code]" message="#['Invalid destination ' ++ (vars.code default 'undefined')]"/>
     <choice doc:name="Choice" doc:id="ukhxew">
@@ -149,5 +152,39 @@ output application/json
 payload]]></ee:set-payload>
       </ee:message>
     </ee:transform>
-    <logger doc:name="Logger" doc:id="qbstsc"/></flow>
+    <logger doc:name="Logger" doc:id="qbstsc"/>
+    <error-handler>
+      
+      <on-error-continue doc:name="On-error-continue" type="AMERICAN-FLIGHTS-TRAINING-API:BAD_REQUEST">
+        <ee:transform doc:name="Transform Message" doc:id="btzgjd" >
+          <ee:message >
+            <ee:set-payload doc:name="Set payload" doc:id="kkmmbk" ><![CDATA[%dw 2.0
+output application/json
+---
+message: 'No flights to ' ++ vars.code as String]]></ee:set-payload>
+          </ee:message>
+          <ee:variables>
+            <ee:set-variable variableName="NewVariable1"><![CDATA[200]]></ee:set-variable>
+          </ee:variables>      
+        </ee:transform>
+        <logger doc:name="Logger" doc:id="senzjn"/>
+          
+      </on-error-continue>
+      <on-error-propagate doc:name="On-error-propagate" type="ANY">
+              <ee:transform doc:name="Transform Message" doc:id="widlou" >
+                <ee:message >
+                  <ee:set-payload doc:name="Set payload" doc:id="uuygqj" ><![CDATA[%dw 2.0
+output application/json
+---
+message: (error.description default '')
+]]></ee:set-payload>
+                </ee:message>
+                <ee:variables>
+                  <ee:set-variable variableName="httpStatus"><![CDATA[400]]></ee:set-variable>
+                </ee:variables>      
+              </ee:transform>
+              <logger doc:name="Logger" doc:id="iajign"/>
+                
+            </on-error-propagate>
+    </error-handler></flow>
 </mule>

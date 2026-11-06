@@ -1,0 +1,74 @@
+{
+  "basicConstraints": 62,
+  "criticalExtensionOIDs": [
+    "Pellentesque",
+    "risus"
+  ],
+  "extendedKeyUsage": [
+    "nisi",
+    "pulvinar",
+    "dui"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "tincidunt"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Adelia",
+      "type": 34
+    }
+  ],
+  "issuerDN": {
+    "commonName": "pulvinar",
+    "name": "Alec"
+  },
+  "issuerUniqueID": [
+    true,
+    true,
+    true
+  ],
+  "issuerX500Principal": {
+    "name": "Adele"
+  },
+  "keyUsage": [
+    true,
+    true
+  ],
+  "name": "Christopher",
+  "nonCriticalExtensionOIDs": [
+    "sodales",
+    "molestie"
+  ],
+  "notAfter": "2023-10-31",
+  "notBefore": "2025-11-29",
+  "publicKey": {
+    "algorithm": "sit",
+    "modulus": 47,
+    "params": 8,
+    "publicKey": "molestie"
+  },
+  "serialNumber": 89,
+  "serialNumberObject": {
+    "serialNumber": 93
+  },
+  "sigAlgName": "lorem",
+  "sigAlgOID": "molestie",
+  "subjectAlternativeNames": [
+    {
+      "name": "Dale",
+      "type": 78
+    }
+  ],
+  "subjectDN": {
+    "commonName": "venenatis",
+    "name": "Afton"
+  },
+  "subjectX500Principal": {
+    "name": "Cedrick"
+  },
+  "type": "nunc",
+  "version": 28
+}
