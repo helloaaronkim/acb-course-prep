@@ -1,30 +1,29 @@
 {
-  "basicConstraints": 61,
+  "basicConstraints": 63,
   "criticalExtensionOIDs": [
-    "Nam",
-    "sit",
-    "ipsum"
+    "Pellentesque",
+    "lorem"
   ],
   "extendedKeyUsage": [
-    "nisi",
-    "justo",
-    "nisi"
+    "nunc",
+    "eget",
+    "felis"
   ],
   "extensions": [
     {
       "criticality": false,
-      "oid": "a"
+      "oid": "sodales"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Cornell",
-      "type": 21
+      "name": "Agustina",
+      "type": 10
     }
   ],
   "issuerDN": {
-    "commonName": "sodales",
-    "name": "Alfonso"
+    "commonName": "lorem",
+    "name": "Allison"
   },
   "issuerUniqueID": [
     false,
@@ -32,44 +31,44 @@
     false
   ],
   "issuerX500Principal": {
-    "name": "Christian"
+    "name": "Amber"
   },
   "keyUsage": [
     false,
-    true
+    false
   ],
-  "name": "Curt",
+  "name": "Albertina",
   "nonCriticalExtensionOIDs": [
-    "lorem",
-    "sed"
+    "arcu",
+    "pulvinar"
   ],
-  "notAfter": "2022-11-05",
-  "notBefore": "2022-09-03",
+  "notAfter": "2023-01-06",
+  "notBefore": "2023-11-20",
   "publicKey": {
-    "algorithm": "pretium",
-    "modulus": 14,
-    "params": 7,
-    "publicKey": "nisi"
+    "algorithm": "tempor",
+    "modulus": 57,
+    "params": 87,
+    "publicKey": "justo"
   },
-  "serialNumber": 52,
+  "serialNumber": 65,
   "serialNumberObject": {
-    "serialNumber": 57
+    "serialNumber": 45
   },
   "sigAlgName": "nisi",
-  "sigAlgOID": "Lorem",
+  "sigAlgOID": "adipiscing",
   "subjectAlternativeNames": [
     {
-      "name": "Alisa",
-      "type": 5
+      "name": "Alma",
+      "type": 38
     }
   ],
   "subjectDN": {
-    "commonName": "at",
-    "name": "Carter"
+    "commonName": "justo",
+    "name": "Alyce"
   },
   "subjectX500Principal": {
-    "name": "Carlos"
+    "name": "Andrea"
   },
-  "type": "mi",
-  "version": 8
+  "type": "ut",
+  "version": 87
 }

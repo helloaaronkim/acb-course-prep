@@ -1,0 +1,74 @@
+{
+  "basicConstraints": 55,
+  "criticalExtensionOIDs": [
+    "dictum",
+    "eros"
+  ],
+  "extendedKeyUsage": [
+    "adipiscing",
+    "vitae",
+    "viverra"
+  ],
+  "extensions": [
+    {
+      "criticality": false,
+      "oid": "lectus"
+    }
+  ],
+  "issuerAlternativeNames": [
+    {
+      "name": "Conrad",
+      "type": 47
+    }
+  ],
+  "issuerDN": {
+    "commonName": "viverra",
+    "name": "Carroll"
+  },
+  "issuerUniqueID": [
+    false,
+    false,
+    false
+  ],
+  "issuerX500Principal": {
+    "name": "Broderick"
+  },
+  "keyUsage": [
+    false,
+    false
+  ],
+  "name": "Aja",
+  "nonCriticalExtensionOIDs": [
+    "ut",
+    "a"
+  ],
+  "notAfter": "2023-02-25",
+  "notBefore": "2022-08-08",
+  "publicKey": {
+    "algorithm": "dolor",
+    "modulus": 48,
+    "params": 91,
+    "publicKey": "Nunc"
+  },
+  "serialNumber": 30,
+  "serialNumberObject": {
+    "serialNumber": 69
+  },
+  "sigAlgName": "faucibus",
+  "sigAlgOID": "consectetur",
+  "subjectAlternativeNames": [
+    {
+      "name": "Cristopher",
+      "type": 52
+    }
+  ],
+  "subjectDN": {
+    "commonName": "consectetur",
+    "name": "Ami"
+  },
+  "subjectX500Principal": {
+    "name": "Claud"
+  },
+  "type": "eget",
+  "version": 46
+}

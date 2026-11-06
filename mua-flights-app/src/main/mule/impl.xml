@@ -1,4 +1,6 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd  http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd  http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
+	http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
   <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
     <american-flights-training-api:connection></american-flights-training-api:connection>
   </american-flights-training-api:config>
@@ -93,7 +95,7 @@ payload.body.findFlightResponse.*return map {
     <logger doc:id="fbyhlc" doc:name="Logger"></logger>
   </flow>
   <sub-flow doc:id="shdtkm" name="setVars">
-    <set-variable doc:id="nctmiz" doc:name="setCode" value="#[attributes.queryParams.code default 'SFO']" variableName="code"></set-variable>
+    <set-variable doc:id="nctmiz" doc:name="setCode" value="#[attributes.queryParams.code]" variableName="code"></set-variable>
     <set-variable doc:name="Set variable" doc:id="zcbfcd" variableName="airline" value="#[attributes.queryParams.airline]"/>
   </sub-flow>
   <flow name="getAllAirlineFlights">
@@ -123,6 +125,7 @@ flatten(payload..payload)]]></ee:set-payload>
 <flow name="getFlights">
     <http:listener doc:name="Listener" doc:id="lwsoev" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET"/>
     <flow-ref doc:name="Flow-ref" name="setVars"/>
+    <validation:is-true doc:name="Is true" doc:id="abbkox" expression="#[['SFO','LAX','CLE','PDX','PDF'] contains vars.code]" message="#['Invalid destination ' ++ (vars.code default 'undefined')]"/>
     <choice doc:name="Choice" doc:id="ukhxew">
         
     <when doc:name="american" expression='#[vars.airline == "american"]'>

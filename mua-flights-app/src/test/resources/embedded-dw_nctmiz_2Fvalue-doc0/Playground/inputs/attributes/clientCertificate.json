@@ -1,75 +1,73 @@
 {
-  "basicConstraints": 90,
+  "basicConstraints": 65,
   "criticalExtensionOIDs": [
-    "tempor",
-    "dui",
-    "at"
+    "molestie",
+    "dictum"
   ],
   "extendedKeyUsage": [
-    "semper",
-    "ipsum",
-    "mi"
+    "tempor",
+    "adipiscing"
   ],
   "extensions": [
     {
       "criticality": false,
-      "oid": "libero"
+      "oid": "faucibus"
     }
   ],
   "issuerAlternativeNames": [
     {
-      "name": "Alphonse",
-      "type": 59
+      "name": "Akiko",
+      "type": 72
     }
   ],
   "issuerDN": {
-    "commonName": "erat",
-    "name": "Alethia"
+    "commonName": "aliquam",
+    "name": "Chad"
   },
   "issuerUniqueID": [
-    true,
-    false
+    false,
+    true
   ],
   "issuerX500Principal": {
-    "name": "Alexia"
+    "name": "Abbie"
   },
   "keyUsage": [
     false,
-    false,
-    false
+    true,
+    true
   ],
-  "name": "Curtis",
+  "name": "Alona",
   "nonCriticalExtensionOIDs": [
-    "erat",
-    "at"
+    "justo",
+    "felis"
   ],
-  "notAfter": "2022-10-30",
-  "notBefore": "2023-05-22",
+  "notAfter": "2025-10-01",
+  "notBefore": "2024-01-11",
   "publicKey": {
-    "algorithm": "a",
-    "modulus": 3,
-    "params": 84,
-    "publicKey": "nibh"
+    "algorithm": "nibh",
+    "modulus": 0,
+    "params": 92,
+    "publicKey": "a"
   },
-  "serialNumber": 7,
+  "serialNumber": 75,
   "serialNumberObject": {
-    "serialNumber": 45
+    "serialNumber": 33
   },
-  "sigAlgName": "nibh",
-  "sigAlgOID": "vitae",
+  "sigAlgName": "In",
+  "sigAlgOID": "elit",
   "subjectAlternativeNames": [
     {
-      "name": "Alleen",
-      "type": 39
+      "name": "Alicia",
+      "type": 36
     }
   ],
   "subjectDN": {
-    "commonName": "pulvinar",
-    "name": "Anastasia"
+    "commonName": "lectus",
+    "name": "Alissa"
   },
   "subjectX500Principal": {
-    "name": "Carroll"
+    "name": "Alease"
   },
-  "type": "molestie",
-  "version": 36
+  "type": "nunc",
+  "version": 68
 }
