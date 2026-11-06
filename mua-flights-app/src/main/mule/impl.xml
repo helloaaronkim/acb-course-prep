@@ -1,22 +1,18 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd  http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
-	http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
-  <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
-    <american-flights-training-api:connection></american-flights-training-api:connection>
-  </american-flights-training-api:config>
-  <http:request-config basePath="${united.basePath}" name="Request-config" responseTimeout="300000">
-    <http:request-connection host="${united.host}" port="${united.port}"></http:request-connection>
-  </http:request-config>
-  <wsc:config name="Delta-Config">
-    <wsc:connection port="${delta.port}" service="${delta.service}" wsdlLocation="${delta.wsdl}">
-    </wsc:connection>
-  </wsc:config>
-  <flow name="getAmericanFlights">
-    
-    <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" destination="#[vars.code]" doc:id="qcpomk" doc:name="Get flights"></american-flights-training-api:get-flights>
-    <ee:transform doc:id="lldgtt" doc:name="JSON to [Flight]">
-      <ee:message>
-        <ee:set-payload doc:id="cxnoxu" doc:name="Set payload"><![CDATA[%dw 2.0
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:american-flights-training-api="http://www.mulesoft.org/schema/mule/american-flights-training-api" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd  http://www.mulesoft.org/schema/mule/american-flights-training-api http://www.mulesoft.org/schema/mule/american-flights-training-api/current/mule-american-flights-training-api.xsd  http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd  http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+    <american-flights-training-api:config name="American_config" property_basePath="${american.basePath}" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}">
+        <american-flights-training-api:connection></american-flights-training-api:connection>
+    </american-flights-training-api:config>
+    <http:request-config basePath="${united.basePath}" name="Request-config" responseTimeout="300000">
+        <http:request-connection host="${united.host}" port="${united.port}"></http:request-connection>
+    </http:request-config>
+    <wsc:config name="Delta-Config">
+        <wsc:connection port="${delta.port}" service="${delta.service}" wsdlLocation="${delta.wsdl}"></wsc:connection>
+    </wsc:config>
+    <flow name="getAmericanFlights">
+        <american-flights-training-api:get-flights client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_config" destination="#[vars.code]" doc:id="qcpomk" doc:name="Get flights"></american-flights-training-api:get-flights>
+        <ee:transform doc:id="lldgtt" doc:name="JSON to [Flight]">
+            <ee:message>
+                <ee:set-payload doc:id="cxnoxu" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 payload map (Payload0, indexOfPayload0) -> {
@@ -29,22 +25,21 @@ payload map (Payload0, indexOfPayload0) -> {
   planeType: Payload0.plane.planeType,
   price: Payload0.price
 }]]></ee:set-payload>
-      </ee:message>
-    </ee:transform>
-    <logger doc:id="dgpxdt" doc:name="Logger"></logger>
-  </flow>
-  <flow name="getUnitedFlights">
-    
-    <http:request config-ref="Request-config" doc:id="wujthl" doc:name="getFlights" path="/flights/{code}">
-      <http:uri-params><![CDATA[#[output application/java
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="dgpxdt" doc:name="Logger"></logger>
+    </flow>
+    <flow name="getUnitedFlights">
+        <http:request config-ref="Request-config" doc:id="wujthl" doc:name="getFlights" path="/flights/{code}">
+            <http:uri-params><![CDATA[#[output application/java
 ---
 {
 	"code" : vars.code
 }]]]></http:uri-params>
-    </http:request>
-    <ee:transform doc:id="uknwoz" doc:name="JSON to [Flight]">
-      <ee:message>
-        <ee:set-payload doc:id="ewzgdk" doc:name="Set payload"><![CDATA[%dw 2.0
+        </http:request>
+        <ee:transform doc:id="uknwoz" doc:name="JSON to [Flight]">
+            <ee:message>
+                <ee:set-payload doc:id="ewzgdk" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 payload.flights map (flight1, indexOfFlights1) -> {
@@ -57,15 +52,14 @@ payload.flights map (flight1, indexOfFlights1) -> {
   planeType: flight1.planeType,
   price: flight1.price
 }]]></ee:set-payload>
-      </ee:message>
-    </ee:transform>
-    <logger doc:id="fhrdvo" doc:name="Logger"></logger>
-  </flow>
-  <flow name="getDeltaFlights">
-    
-    <wsc:consume config-ref="Delta-Config" doc:id="lakrzd" doc:name="Consume" operation="findFlight">
-      <wsc:message>
-        <wsc:body><![CDATA[#[%dw 2.0
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="fhrdvo" doc:name="Logger"></logger>
+    </flow>
+    <flow name="getDeltaFlights">
+        <wsc:consume config-ref="Delta-Config" doc:id="lakrzd" doc:name="Consume" operation="findFlight">
+            <wsc:message>
+                <wsc:body><![CDATA[#[%dw 2.0
 output application/xml
 ---
   {
@@ -73,11 +67,11 @@ output application/xml
       destination: vars.code
     }
   }]]]></wsc:body>
-      </wsc:message>
-    </wsc:consume>
-    <ee:transform doc:id="bysqxg" doc:name="JSON to java">
-      <ee:message>
-        <ee:set-payload doc:id="zvbhts" doc:name="Set payload"><![CDATA[%dw 2.0
+            </wsc:message>
+        </wsc:consume>
+        <ee:transform doc:id="bysqxg" doc:name="JSON to java">
+            <ee:message>
+                <ee:set-payload doc:id="zvbhts" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 payload.body.findFlightResponse.*return map {
@@ -90,151 +84,158 @@ payload.body.findFlightResponse.*return map {
   planeType: $.planeType,
   price: $.price
 }]]></ee:set-payload>
-      </ee:message>
-    </ee:transform>
-    <logger doc:id="fbyhlc" doc:name="Logger"></logger>
-  </flow>
-  <sub-flow doc:id="shdtkm" name="setVars">
-    <set-variable doc:id="nctmiz" doc:name="setCode" value="#[attributes.queryParams.code]" variableName="code"></set-variable>
-    <set-variable doc:name="Set variable" doc:id="zcbfcd" variableName="airline" value="#[attributes.queryParams.airline]"/>
-  </sub-flow>
-  <flow name="getAllAirlineFlights">
-    
-    <scatter-gather doc:name="Scatter gather" doc:id="cddudn">
-      <route>
-        <try doc:name="Try" doc:id="nwiqlv">
-          <flow-ref doc:name="american" name="getAmericanFlights"/>
-          <error-handler>
-            <on-error-continue >
-              <ee:transform doc:name="Transform Message" doc:id="ztsobf" >
-                <ee:message >
-                  <ee:set-payload doc:name="Set payload" doc:id="fgvoai" ><![CDATA[%dw 2.0
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="fbyhlc" doc:name="Logger"></logger>
+    </flow>
+    <sub-flow doc:id="shdtkm" name="setVars">
+        <set-variable doc:id="nctmiz" doc:name="setCode" value="#[attributes.queryParams.code]" variableName="code"></set-variable>
+        <set-variable doc:id="zcbfcd" doc:name="Set variable" value="#[attributes.queryParams.airline]" variableName="airline"></set-variable>
+    </sub-flow>
+    <flow name="getAllAirlineFlights">
+        <scatter-gather doc:id="cddudn" doc:name="Scatter gather">
+            <route>
+                <try doc:id="nwiqlv" doc:name="Try">
+                    <flow-ref doc:name="american" name="getAmericanFlights"></flow-ref>
+                    <error-handler>
+                        <on-error-continue>
+                            <ee:transform doc:id="ztsobf" doc:name="Transform Message">
+                                <ee:message>
+                                    <ee:set-payload doc:id="fgvoai" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 [ ]]]></ee:set-payload>
-                </ee:message>
-              </ee:transform>
-                
-            </on-error-continue>
-          </error-handler>
-            
-        </try>
-      </route>
-      <route>
-        
-        <try doc:name="Try" doc:id="mivnml">
-          <flow-ref doc:name="united" name="getUnitedFlights"/>
-          <error-handler>
-            <on-error-continue >
-                          <ee:transform doc:name="Transform Message" doc:id="devihc" >
-                            <ee:message >
-                              <ee:set-payload doc:name="Set payload" doc:id="xblohc" ><![CDATA[%dw 2.0
-output application/java
----
-[ ]]]></ee:set-payload>
-                            </ee:message>
-                          </ee:transform>
-                            
+                                </ee:message>
+                            </ee:transform>
                         </on-error-continue>
-          </error-handler>
-            
-        </try>
-      </route>
-      <route doc:name="Route">
-        
-        <try doc:name="Try" doc:id="pvzyao">
-          <flow-ref doc:name="delta" name="getDeltaFlights"/>
-          <error-handler>
-            <on-error-continue >
-                          <ee:transform doc:name="Transform Message" doc:id="xiyarf" >
-                            <ee:message >
-                              <ee:set-payload doc:name="Set payload" doc:id="wjsocg" ><![CDATA[%dw 2.0
+                    </error-handler>
+                </try>
+            </route>
+            <route>
+                <try doc:id="mivnml" doc:name="Try">
+                    <flow-ref doc:name="united" name="getUnitedFlights"></flow-ref>
+                    <error-handler>
+                        <on-error-continue>
+                            <ee:transform doc:id="devihc" doc:name="Transform Message">
+                                <ee:message>
+                                    <ee:set-payload doc:id="xblohc" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 [ ]]]></ee:set-payload>
-                            </ee:message>
-                          </ee:transform>
-                            
+                                </ee:message>
+                            </ee:transform>
                         </on-error-continue>
-          </error-handler>
-            
-        </try>
-          
-      </route>
-        
-    </scatter-gather>
-        <ee:transform doc:name="Transform Message" doc:id="hzxchy" >
-            <ee:message >
-                <ee:set-payload doc:name="Set payload" doc:id="dchcwy" ><![CDATA[%dw 2.0
+                    </error-handler>
+                </try>
+            </route>
+            <route doc:name="Route">
+                <try doc:id="pvzyao" doc:name="Try">
+                    <flow-ref doc:name="delta" name="getDeltaFlights"></flow-ref>
+                    <error-handler>
+                        <on-error-continue>
+                            <ee:transform doc:id="xiyarf" doc:name="Transform Message">
+                                <ee:message>
+                                    <ee:set-payload doc:id="wjsocg" doc:name="Set payload"><![CDATA[%dw 2.0
+output application/java
+---
+[ ]]]></ee:set-payload>
+                                </ee:message>
+                            </ee:transform>
+                        </on-error-continue>
+                    </error-handler>
+                </try>
+            </route>
+        </scatter-gather>
+        <ee:transform doc:id="hzxchy" doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload doc:id="dchcwy" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/java
 ---
 flatten(payload..payload)]]></ee:set-payload>
             </ee:message>
         </ee:transform>
-    <logger doc:name="Logger" doc:id="ntsuez"/></flow>
-<flow name="getFlights">
-    <http:listener doc:name="Listener" doc:id="lwsoev" path="/flights" config-ref="mua-flights-api-httpListenerConfig" allowedMethods="GET">
-      <http:response statusCode="#[vars.httpStatus default 200]" />
-      <http:error-response statusCode="#[vars.httpStatus default 500]" />
-    </http:listener>
-    <flow-ref doc:name="Flow-ref" name="setVars"/>
-    <validation:is-true doc:name="Is true" doc:id="abbkox" expression="#[['SFO','LAX','CLE','PDX','PDF'] contains vars.code]" message="#['Invalid destination ' ++ (vars.code default 'undefined')]"/>
-    <choice doc:name="Choice" doc:id="ukhxew">
-        
-    <when doc:name="american" expression='#[vars.airline == "american"]'>
-        <flow-ref doc:name="american" name="getAmericanFlights"/></when>
-      <when doc:name="united" expression="#[vars.airline == 'united']">
-        <flow-ref doc:name="united" name="getUnitedFlights"/>
-          
-      </when>
-      <when doc:name="delta" expression="#[vars.airline == 'delta']">
-        <flow-ref doc:name="delta" name="getDeltaFlights"/>
-          
-      </when>
-      <otherwise>
-        <flow-ref doc:name="all" name="getAllAirlineFlights"/>
-      </otherwise></choice>
-    <ee:transform doc:name="Transform Message" doc:id="qeusmc" >
-      <ee:message >
-        <ee:set-payload doc:name="Set payload" doc:id="rygkaq" ><![CDATA[%dw 2.0
+        <logger doc:id="ntsuez" doc:name="Logger"></logger>
+    </flow>
+    <flow name="getFlights">
+        <http:listener allowedMethods="GET" config-ref="mua-flights-api-httpListenerConfig" doc:id="lwsoev" doc:name="Listener" path="/flights">
+            <http:response statusCode="#[vars.httpStatus default 200]"></http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]"></http:error-response>
+        </http:listener>
+        <flow-ref doc:name="Flow-ref" name="setVars"></flow-ref>
+        <validation:is-true doc:id="abbkox" doc:name="Is true" expression="#[['SFO','LAX','CLE','PDX','PDF'] contains vars.code]" message="#['Invalid destination ' ++ (vars.code default 'undefined')]"></validation:is-true>
+        <choice doc:id="ukhxew" doc:name="Choice">
+            <when doc:name="american" expression="#[vars.airline == &quot;american&quot;]">
+                <flow-ref doc:name="american" name="getAmericanFlights"></flow-ref>
+            </when>
+            <when doc:name="united" expression="#[vars.airline == 'united']">
+                <flow-ref doc:name="united" name="getUnitedFlights"></flow-ref>
+            </when>
+            <when doc:name="delta" expression="#[vars.airline == 'delta']">
+                <flow-ref doc:name="delta" name="getDeltaFlights"></flow-ref>
+            </when>
+            <otherwise>
+                <flow-ref doc:name="all" name="getAllAirlineFlights"></flow-ref>
+            </otherwise>
+        </choice>
+        <ee:transform doc:id="qeusmc" doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload doc:id="rygkaq" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/json
 ---
 payload]]></ee:set-payload>
-      </ee:message>
-    </ee:transform>
-    <logger doc:name="Logger" doc:id="qbstsc"/>
-    <error-handler>
-      
-      <on-error-continue doc:name="On-error-continue" type="AMERICAN-FLIGHTS-TRAINING-API:BAD_REQUEST">
-        <ee:transform doc:name="Transform Message" doc:id="btzgjd" >
-          <ee:message >
-            <ee:set-payload doc:name="Set payload" doc:id="kkmmbk" ><![CDATA[%dw 2.0
+            </ee:message>
+        </ee:transform>
+        <logger doc:id="qbstsc" doc:name="Logger"></logger>
+        <error-handler>
+            <on-error-continue doc:name="On-error-continue" type="AMERICAN-FLIGHTS-TRAINING-API:BAD_REQUEST">
+                <ee:transform doc:id="btzgjd" doc:name="Transform Message">
+                    <ee:message>
+                        <ee:set-payload doc:id="kkmmbk" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/json
 ---
 message: 'No flights to ' ++ vars.code as String]]></ee:set-payload>
-          </ee:message>
-          <ee:variables>
-            <ee:set-variable variableName="NewVariable1"><![CDATA[200]]></ee:set-variable>
-          </ee:variables>      
-        </ee:transform>
-        <logger doc:name="Logger" doc:id="senzjn"/>
-          
-      </on-error-continue>
-      <on-error-propagate doc:name="On-error-propagate" type="ANY">
-              <ee:transform doc:name="Transform Message" doc:id="widlou" >
-                <ee:message >
-                  <ee:set-payload doc:name="Set payload" doc:id="uuygqj" ><![CDATA[%dw 2.0
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="NewVariable1"><![CDATA[200]]></ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+                <logger doc:id="senzjn" doc:name="Logger"></logger>
+            </on-error-continue>
+            <on-error-propagate doc:name="On-error-propagate" type="ANY">
+                <ee:transform doc:id="widlou" doc:name="Transform Message">
+                    <ee:message>
+                        <ee:set-payload doc:id="uuygqj" doc:name="Set payload"><![CDATA[%dw 2.0
 output application/json
 ---
 message: (error.description default '')
 ]]></ee:set-payload>
-                </ee:message>
-                <ee:variables>
-                  <ee:set-variable variableName="httpStatus"><![CDATA[400]]></ee:set-variable>
-                </ee:variables>      
-              </ee:transform>
-              <logger doc:name="Logger" doc:id="iajign"/>
-                
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus"><![CDATA[400]]></ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+                <logger doc:id="iajign" doc:name="Logger"></logger>
             </on-error-propagate>
-    </error-handler></flow>
+        </error-handler>
+    </flow>
+    <flow doc:id="xwcztx" name="postFlight">
+        <ee:transform doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/xml
+---
+data: {
+  hub: 'MUA',
+  flight: {
+    code: payload.toAirportCode,
+    airline: payload.airline
+  }
+}]]></ee:set-payload>
+            </ee:message>
+            <ee:variables>
+                <ee:set-variable variableName="dwOutput" resource="json-flight-playground.dwl"/>
+            </ee:variables>    
+        </ee:transform>
+        <logger doc:name="Logger" doc:id="ikorle"/>
+    </flow>
 </mule>
